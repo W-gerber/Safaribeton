@@ -209,7 +209,11 @@
 </footer>
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
+<script type="module">
+    import { inject } from "@vercel/analytics";
+
+    inject();
+
     document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll("nav ul li a");
