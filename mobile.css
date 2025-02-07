@@ -1,0 +1,311 @@
+/* General Styles for Mobile */
+body {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1000px 20px;
+    background-color: #000000;
+    border-bottom: 2px solid #ccc;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 400px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.hamburger-menu {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 60px;
+    z-index: 1000;
+}
+
+.mobile-nav.show {
+    display: flex;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.mobile-nav li {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.mobile-nav a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Home Section */
+#home {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+#home .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2px;
+    border-radius: 10px;
+}
+
+#home h2 {
+    font-size: 20px;
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+.section-header {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.underline {
+    width: 50px;
+    height: 4px;
+    background-color: #333;
+    margin: 0 auto 20px;
+}
+
+/* Shop Section */
+.shop-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shop-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.shop-item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.shop-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.shop-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Services Section */
+.services-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.service img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    margin-bottom: 10px;
+}
+
+.service h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.service p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Projects Section */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* About Section */
+.about-section {
+    background: #f4f4f4;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.about-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    margin-bottom: 10px;
+}
+
+.about-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.contact-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.contact-form button {
+    background: #333;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #555;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-links span a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links span a:hover {
+    text-decoration: underline;
+}
