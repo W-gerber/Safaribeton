@@ -149,7 +149,7 @@ underline {
 }
 .about-section {
     position: relative; 
-    background: url('Images/AboutPhoto.jpg') no-repeat center center / cover;
+    background: url('Images/aboutPhoto.jpg') no-repeat center center / cover;
     padding: 60px 20px; 
     height: 80vh; 
 
