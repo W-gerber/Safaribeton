@@ -230,9 +230,9 @@ underline {
 }
 .project img {
     width: 100%; 
-    height: 380px; 
+    height: auto; 
     border-radius: 10px; 
-    max-height: 350px;
+    max-height: 380px;
     object-fit: cover; 
 }
 .project:hover {
