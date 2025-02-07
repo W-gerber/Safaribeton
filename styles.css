@@ -228,10 +228,6 @@ underline {
     margin: 10px;
     text-align: center;
     transition: transform 0.3s;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: flex-start; /*
 }
 .project img {
     width: 100%; 
