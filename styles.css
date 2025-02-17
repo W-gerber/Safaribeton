@@ -475,6 +475,37 @@ h2 {
     font-size: 1em; 
     color: #666; 
 }
+.pulse-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.pulse-button:hover {
+    animation: none;
+    transform: scale(1.1);
+}
 footer {
     background: linear-gradient(to right, #003c27, limegreen);
     color: rgb(255, 255, 255); 
