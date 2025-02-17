@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 * {
     margin: 0;
     padding: 0;
@@ -89,9 +90,83 @@ nav ul li a.active {
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 #home {
     position: relative;
-    height: 60vh; 
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+#home .main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#home .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.158);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.animated-title {
+    color: #fff;
+    font-family: Roboto, Arial, sans-serif;
+    text-align: center;
+    position: relative;
+}
+
+.animated-title > div {
+    overflow: hidden;
+}
+
+.animated-title > div div {
+    font-size: 1.5em; 
+    padding: 0.5em 0;
+    position: relative;
+}
+
+.animated-title > div div span {
+    display: block;
+}
+
+.text-top {
+    border-bottom: 2px solid #fff;
+}
+
+.text-top div {
+    animation: showTopText 1s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    transform: translateY(100%);
+}
+
+/* Animation for bottom text */
+.text-bottom div {
+    animation: showBottomText 0.5s;
+    animation-delay: 1.75s;
+    animation-fill-mode: forwards;
+    transform: translateY(-100%);
+}
+
+/* Keyframes for the animations */
+@keyframes showTopText {
+    0% { transform: translateY(100%); }
+    40%, 60% { transform: translateY(50%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes showBottomText {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
 }
 .main-image {
     width: 100vw;
@@ -112,6 +187,7 @@ nav ul li a.active {
 #services {
     padding: 40px 20px;
     text-align: center;
+    
 }
 #services h2 {
     font-size: 1.5em;
@@ -138,11 +214,13 @@ underline {
     margin: 10px;
     text-align: center;
     transition: transform 0.3s; 
+    
 }
 .service img {
     width: 100%;
     height: auto;
     border-radius: 10px; 
+    
 }
 .service:hover {
     transform: scale(1.05); 
@@ -204,134 +282,35 @@ underline {
 .about-content p {
     font-size: 1.2em; 
 }
-/* Projects Section Container */
+
 .projects-section {
     padding: 60px 20px;
-    background-color: #ffffff; /* A light neutral background */
+    background-color: #ffffff; 
     text-align: center;
   }
   
-  /* Grid Layout for Project Cards */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* reduced min width for smaller boxes */
-    gap: 30px;
-    margin-top: 20px;
-    perspective: 1000px; /* Needed for 3D flip effect */
-  }
   
-  /* Project Card Base Styles */
-  .project-card {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 70%; /* Maintains a 4:3 aspect ratio */
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-  }
   
-  /* Flip the card on hover */
-  .project-card:hover {
-    transform: rotateY(180deg);
-  }
-  
-  /* Inner container to hold front and back faces */
-  .card-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-  }
-  
-  /* Front and Back Card Faces */
-  .card-front,
-  .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    backface-visibility: hidden;
-  }
-  
-  /* Card Front: Image Styles with a bigger green border */
-  .card-front {
-    border: 15px solid var(--main-color); /* Increased border thickness */
-    padding: 0px; /* Inner padding makes the photo a bit smaller */
-    box-sizing: border-box;
-  }
-  
-  .card-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s;
-  }
-  
-  /* Slight zoom on image when hovering the card */
-  .project-card:hover .card-front img {
-    transform: scale(1.05);
-  }
-  
-  /* Card Back: Styling and Layout */
-  .card-back {
-    background-color: var(--main-color); /* Using your site's main color */
-    color: var(--text-color);
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Card Back Heading */
-  .card-back h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  
-  /* Card Back Paragraph */
-  .card-back p {
-    font-size: 1em;
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
-  
-  /* Call-to-Action Button */
-  .card-back a {
-    text-decoration: none;
-    background-color: var(--hover-color); /* limegreen */
-    color: var(--main-color);
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  /* Button Hover Effects */
-  .card-back a:hover {
-    background-color: var(--text-color);
-    color: var(--main-color);
-  }
-  
-#contact {
+  #contact {
     padding: 60px 20px;
     background-color: #ffffff;
     text-align: center;
 }
+
 #contact h2 {
     font-size: 1.5em; 
     color: black; 
     margin-bottom: 20px;
+    
 }
+
 #contact .underline {
     height: 4px;
     background-color: var(--main-color);
     width: 50px;
     margin: 10px auto;
 }
+
 .contact-container {
     display: flex;
     justify-content: space-between;
@@ -340,15 +319,18 @@ underline {
     margin: 0;
     padding: 0;
 }
+
 .map-container {
     flex: 0 0 70%; 
     height: calc(100vh - 200px); 
 }
+
 .map-container iframe {
     width: 100%;
     height: 100%;
     border: none; 
 }
+
 .contact-form {
     flex: 0 0 30%;
     padding: 40px;
@@ -361,30 +343,50 @@ underline {
     margin-left: 20px;
     border-radius: 10px;
 }
+
 .contact-form h3 {
     color: limegreen;
     font-size: 2em;
     margin-bottom: 20px;
 }
+
+/* Changed label color to black */
 .contact-form label {
-    color: white;
+    color: black;
     font-size: 1em;
 }
+
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid rgba(50, 205, 50, 0.5);
-    background: linear-gradient(to top, white, white); 
-    color: rgb(0, 0, 0);
+    background: white; 
+    color: black;
     border-radius: 5px;
-    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
 }
+
+/* Updated placeholder color to black */
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.7);
 }
+
+/* For WebKit browsers */
+.contact-form input::-webkit-input-placeholder,
+.contact-form textarea::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* For IE */
+.contact-form input:-ms-input-placeholder,
+.contact-form textarea:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.7);
+}
+
 .contact-form button {
     background: linear-gradient(to top, #01472f, black); 
     color: rgb(32, 243, 13);
@@ -396,10 +398,12 @@ underline {
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .contact-form button:hover {
     background: linear-gradient(to top, #003c27, limegreen);
     color: black;
 }
+
 .contact-form .office-hours,
 .contact-form .office-number {
     color: white; 
@@ -407,6 +411,7 @@ underline {
     margin-top: 5px;
     text-align: center;
 }
+
 #shop {
     padding: 50px 20px;
     text-align: center;
@@ -475,6 +480,7 @@ h2 {
     font-size: 1em; 
     color: #666; 
 }
+
 .pulse-button {
     background-color: #007bff;
     color: white;
@@ -506,6 +512,108 @@ h2 {
     animation: none;
     transform: scale(1.1);
 }
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
+
+.projects-grid {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+figure.snip1206 {
+    font-family: 'Raleway', Arial, sans-serif;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Ensures it fills its section */
+    max-width: 600%; /* Adjust to your layout */
+    height: 400px;
+    width: 550px;
+    border-radius: 8px;
+    border: 8px solid #004d40; /* Dark green border */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+}
+
+figure.snip1206 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.35s;
+}
+
+figure.snip1206:after {
+    background: rgba(0, 77, 64, 0.753); /* Dark Green effect */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    opacity: 0;
+    transform: skew(-45deg) scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+figure.snip1206 figcaption {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+figure.snip1206 h2,
+figure.snip1206 p {
+    margin: 0;
+    opacity: 0;
+}
+
+figure.snip1206 h2 {
+    padding: 0 30px;
+    display: inline-block;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+figure.snip1206 p {
+    padding: 0 50px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+figure.snip1206 a {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+figure.snip1206:hover:after {
+    transform: skew(-45deg) scaleX(1);
+    opacity: 1;
+    transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+figure.snip1206:hover figcaption,
+figure.snip1206:hover h2,
+figure.snip1206:hover p {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+figure.snip1206:hover {
+    transform: scale(1.05);
+}
+
+  
+    
 footer {
     background: linear-gradient(to right, #003c27, limegreen);
     color: rgb(255, 255, 255); 
@@ -692,7 +800,7 @@ footer {
         padding: 20px;
     }
     .contact-form h3 {
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
     .contact-form input,
     .contact-form textarea {
