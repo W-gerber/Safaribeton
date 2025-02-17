@@ -37,11 +37,20 @@
         </nav>
     </header>
 
-    <section id="home">
+<section id="home">
         <div class="overlay">
-            <h2>Precast Concrete Supplier</h2>
+             <div class="animated-title">
+                 <div class="text-top">
+                     <div>
+                         <span>SAFARI BETON</span>
+                     </div>
+                 </div>
+                 <div class="text-bottom">
+                     <div>Precast Concrete Supplier</div>
+                 </div>
+             </div>
         </div>
-        <img src="Images/Trunk.jpg" alt="Images/Precast Concrete" class="main-image">
+        <img src="Images/Trunk.jpg" alt="Precast Concrete" class="main-image">
     </section>
 
     <section id="shop">
@@ -135,56 +144,37 @@
         </div>
     </section>
 
-   <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section">
         <h2 class="section-header">Our Projects</h2>
         <div class="underline"></div>
         <div class="projects-grid">
-          <!-- Project Card 1 -->
-          <div class="project-card">
-            <div class="card-inner">
-              <!-- Front: Photo with dark green border -->
-              <div class="card-front">
-                <img src="Images/Kantoor.jpg" alt="Urban Residence">
-              </div>
-              <!-- Back: Project details -->
-              <div class="card-back">
-                <h3>Urban Residence</h3>
-                <p> Discover an efficiently designed two-bedroom residence featuring a spacious living room area. This layout prioritizes functionality and practical living, ensuring a balanced and convenient environment for modern lifestyles.</p>
-                <a href="#">View Details</a>
-              </div>
-            </div>
-          </div>
-          <!-- Project Card 2 -->
-          <div class="project-card">
-            <div class="card-inner">
-              <div class="card-front">
-                <img src="Images/Kantoor2.jpg" alt="Modern Office">
-              </div>
-              <div class="card-back">
-                <h3>Modern Office</h3>
-                <p>Presenting a modern office space measuring 4.5m x 4.5m, designed to optimize productivity in a compact environment. Its clean, streamlined layout delivers a functional workspace tailored for efficiency and focus.</p>
-                <a href="#">View Details</a>
-              </div>
-            </div>
-          </div>
-          <!-- Project Card 3 -->
-          <div class="project-card">
-            <div class="card-inner">
-              <div class="card-front">
-                <img src="Images/huis.jpg" alt="Residential Complex">
-              </div>
-              <div class="card-back">
-                <h3>Residential Complex</h3>
-                <p>
-                Discover a meticulously designed two-bedroom residence that perfectly balances functionality and modern style. This home features a dedicated kitchen area optimized for everyday use, seamlessly connected to a well-proportioned dining space. Every aspect of the layout has been thoughtfully planned to offer a practical and efficient living environment, ideal for contemporary lifestyles.
-                </p>
-
-
-                <a href="#">View Details</a>
-              </div>
-            </div>
-          </div>
-          <!-- Add additional cards as needed -->
+            <figure class="snip1206">
+                <img src="Images/Kantoor.jpg" alt="Urban Residence" />
+                <figcaption>
+                    <h2>Urban Residence</h2>
+                    <p>Discover an efficiently designed two-bedroom residence featuring a spacious living room area.</p>
+                </figcaption>
+                <a href="#"></a>
+            </figure>
+            
+            <figure class="snip1206">
+                <img src="Images/Kantoor2.jpg" alt="Modern Office" />
+                <figcaption>
+                    <h2>Modern Office</h2>
+                    <p>Presenting a modern office space measuring 4.5m x 4.5m, designed for efficiency and focus.</p>
+                </figcaption>
+                <a href="#"></a>
+            </figure>
+            
+            <figure class="snip1206">
+                <img src="Images/huis.jpg" alt="Residential Complex" />
+                <figcaption>
+                    <h2>Residential Complex</h2>
+                    <p>A meticulously designed two-bedroom residence that balances functionality and modern style.</p>
+                </figcaption>
+                <a href="#"></a>
+            </figure>
+        </div>
         </div>
       </section>
     <section id="about" class="about-section">
@@ -204,27 +194,28 @@
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-<div class="contact-form">
-    <h3>Get in Touch</h3>
-    <form id="contact-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="surname">Surname:</label>
-        <input type="text" id="surname" name="surname" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit" class="pulse-button">Send Message</button>
-      
-        <p class="office-hours">Office Hours: Mon - Fri 7 AM to 5 PM, Sat 7 AM to 12 PM</p>
-        <p class="office-number">Office Number: 083 583 8388</p>
-    </form>
-</div>
+          <div class="contact-form">
+                <h3>Get in Touch</h3>
+                <form id="contact-form" method="post" action="#">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="surname" name="surname" placeholder="Your Surname" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="pulse-button">Send Message</button>
+                    <div class="contact-details">
+                        <p class="office-hours">Office Hours: Mon - Fri 7 AM to 5 PM, Sat 7 AM to 12 PM</p>
+                        <p class="office-number">Office Number: 083 583 8388</p>
+                    </div>
+                </form>
+            </div>
 </div>
 </div>
 </section>
