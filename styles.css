@@ -662,12 +662,11 @@ footer {
 }
 
 @media (max-width: 768px) {
-  figure.snip1206 img {
-    width: 80%;  
-    height: auto;    
-    max-width: 400px; 
-    margin: 0 auto;   
-  }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
 
     header .logo {
         display: flex;
@@ -742,7 +741,7 @@ footer {
 }
 @media (max-width: 480px) {
     body {
-        font-size: 10px;
+        font-size: 12px;
     }
   }
     header h1 {
