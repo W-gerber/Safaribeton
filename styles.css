@@ -662,12 +662,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-    }
+  figure.snip1206 img {
+    width: 80%;  
+    height: auto;    
+    max-width: 400px; 
+    margin: 0 auto;   
+  }
+
     header .logo {
         display: flex;
         align-items: center;
