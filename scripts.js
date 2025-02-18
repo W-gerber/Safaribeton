@@ -78,3 +78,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+  const projectLinks = document.querySelectorAll('.project a');
+  if (isMobileDevice) {
+    projectLinks.forEach(link => {
+      link.addEventListener('touchstart', function(event) {
+        event.preventDefault();
+        projectLinks.forEach(l => l.classList.remove('hover'));
+        this.classList.add('hover');
+      });
+      link.addEventListener('touchend', function(event) {
+        setTimeout(() => {
+          this.classList.remove('hover');
+        }, 300);
+      });
+    });
+  } else {
+    projectLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+      });
+    });
+  }
+});
