@@ -63,16 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
         updateImageDisplay();
     });
 
-    emailjs.init('service_45a4pps');
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        emailjs.sendForm('service_45a4pps', 'template_jqrv3n2', this)
-            .then(function(response) {
-                console.log('SUCCESS!', response);
-                alert("Your message has been sent successfully!");
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert("Oops! Something went wrong.");
-            });
-    });
+  emailjs.init('service_45a4pps');
+
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      emailjs.sendForm('service_45a4pps', '__ejs-test-mail-service__', this)
+          .then(function(response) {
+              console.log('SUCCESS!', response);
+              alert("Your message has been sent successfully!");
+          }, function(error) {
+              console.log('FAILED...', error);
+              alert("Oops! Something went wrong.");
+          });
+  });
 });
+
