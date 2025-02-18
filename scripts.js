@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   emailjs.init('service_45a4pps');
-
   document.getElementById("contact-form").addEventListener("submit", function(event) {
       event.preventDefault();
       emailjs.sendForm('service_45a4pps', '__ejs-test-mail-service__', this)
@@ -76,26 +75,23 @@ document.addEventListener("DOMContentLoaded", function () {
               alert("Oops! Something went wrong.");
           });
   });
-});
 
   const projectLinks = document.querySelectorAll('.project a');
   if (isMobileDevice) {
     projectLinks.forEach(link => {
-      link.addEventListener('touchstart', function(event) {
-        event.preventDefault();
-        projectLinks.forEach(l => l.classList.remove('hover'));
-        this.classList.add('hover');
-      });
-      link.addEventListener('touchend', function(event) {
-        setTimeout(() => {
-          this.classList.remove('hover');
-        }, 300);
+      link.addEventListener('click', function(event) {
+          event.preventDefault();
+          projectLinks.forEach(l => l.classList.remove('hover'));
+          this.classList.add('hover');
+          setTimeout(() => {
+              this.classList.remove('hover');
+          }, 1000);
       });
     });
   } else {
     projectLinks.forEach(link => {
       link.addEventListener('click', function(event) {
-        event.preventDefault();
+          event.preventDefault();
       });
     });
   }
