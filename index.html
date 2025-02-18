@@ -272,7 +272,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const header = document.querySelector("header");
 
   function updateActiveSection() {
-    // Calculate a scroll position offset (header height + extra offset)
     let scrollPos = window.scrollY + header.offsetHeight + 10;
     let currentSectionId = "";
 
@@ -337,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (contactForm) {
     contactForm.addEventListener("submit", function (event) {
       event.preventDefault();
-      emailjs.sendForm("service_45a4pps", "__ejs-test-mail-service__", this)
+      emailjs.sendForm("service_45a4pps", "template_jqrv3n2", this)
         .then(function (response) {
           console.log("SUCCESS!", response);
           alert("Your message has been sent successfully!");
