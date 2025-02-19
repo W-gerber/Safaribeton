@@ -341,35 +341,64 @@
           updateImageDisplay();
         });
 
-        emailjs.init("SxH6Bi3FPlFrT6Vbu");
-        const contactForm = document.getElementById("contact-form");
-        if (contactForm) {
-          contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            emailjs.sendForm("service_bkz7sda", "template_jqrv3n2", this)
-              .then(function (response) {
-                console.log("SUCCESS!", response);
-                alert("Your message has been sent successfully!");
-              }, function (error) {
-                console.log("FAILED...", error);
-                alert("Oops! Something went wrong.");
-              });
-          });
+       emailjs.init("SxH6Bi3FPlFrT6Vbu");
+
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const submitButton = contactForm.querySelector("button[type='submit']");
+          submitButton.disabled = true;
+          submitButton.innerText = "Sending...";
+
+          emailjs.sendForm("service_bkz7sda", "template_jqrv3n2", this)
+            .then(function (response) {
+              console.log("SUCCESS!", response);
+              showPopup("✅ Your message has been sent successfully!", true);
+            }, function (error) {
+              console.log("FAILED...", error);
+              showPopup("❌ Oops! Something went wrong.", false);
+            })
+            .finally(() => {
+              submitButton.disabled = false;
+              submitButton.innerText = "Send Message";
+            });
+        });
+      }
+
+      function showPopup(message, isSuccess) {
+        const popup = document.createElement("div");
+        popup.classList.add("popup-message");
+        popup.innerHTML = message;
+        if (isSuccess) {
+          popup.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+          popup.style.color = "#333";
+        } else {
+          popup.style.backgroundColor = "rgba(255, 85, 85, 0.9)";
+          popup.style.color = "#fff";
         }
 
-        const projectLinks = document.querySelectorAll("figure.snip1206 a");
-        projectLinks.forEach(link => {
-          link.addEventListener("click", function (event) {
-            event.preventDefault();
-            projectLinks.forEach(l => l.classList.remove("hover"));
-            this.classList.add("hover");
-            setTimeout(() => {
-              this.classList.remove("hover");
-            }, 1000);
-          });
+        document.body.appendChild(popup);
+
+        setTimeout(() => {
+          popup.classList.add("fade-out");
+          setTimeout(() => popup.remove(), 500);
+        }, 2500);
+      }
+      const projectLinks = document.querySelectorAll("figure.snip1206 a");
+      projectLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          projectLinks.forEach(l => l.classList.remove("hover"));
+          this.classList.add("hover");
+          setTimeout(() => {
+            this.classList.remove("hover");
+          }, 1000);
         });
       });
-    })();
-  </script>
+    });
+  })();
+</script>
 </body>
 </html>
