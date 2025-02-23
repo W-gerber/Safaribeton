@@ -402,6 +402,14 @@
       });
     });
   })();
+  window.addEventListener('scroll', function() {
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (window.scrollY > 0) {
+      themeColorMeta.setAttribute('content', '#000000');
+    } else {
+      themeColorMeta.setAttribute('content', '#003c27');
+    }
+  }); 
 </script>
 </body>
 </html>
