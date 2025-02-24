@@ -1,4 +1,3 @@
-/* Reset and Root Variables */
 * {
     margin: 0;
     padding: 0;
@@ -9,8 +8,7 @@
     --hover-color: limegreen;
     --text-color: white;
   }
-  
-  /* Global Typography */
+
   body {
     font-family: 'Open Sans', sans-serif;
   }
@@ -247,7 +245,7 @@
   .about-section {
     position: relative;
     border-radius: 10px;
-    background: url('../images/aboutPhoto.jpg') no-repeat center center / cover;
+    background: url('..css/images/aboutPhoto.jpg') no-repeat center center / cover;
     padding: 60px 20px;
     height: 100vh;
   }
@@ -300,10 +298,10 @@
   }
   .about-content p {
     font-size: 1.2em;
-    line-height: 1.5;         /* Adds space between lines for readability */
-    text-align: justify;      /* Aligns text to both edges */
-    overflow-wrap: break-word; /* Ensures long words break appropriately */
-    hyphens: auto;            /* Optional: adds hyphenation for better word breaks */
+    line-height: 1.5;         /
+    text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto; 
   }
   
   /* -------------------- */
@@ -520,7 +518,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     position: relative;
-    min-height: 30px; /* Ensures uniform height */
+    min-height: 30px; 
   }
   .shop-item:hover {
     transform: scale(1.05);
@@ -531,22 +529,21 @@
   }
   .carousel img {
     width: 100%;
-    height: 350px;          /* Fixed height for uniformity */
+    height: 350px;
     object-fit: cover;
     display: none;
   }
   .carousel img:first-child {
     display: block;
   }
-  /* Carousel Arrow Buttons */
   .carousel-arrow {
     position: absolute;
-    top: 50%;                /* Moved slightly lower */
+    top: 50%; 
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.8); /* Light, translucent white */
+    background: rgba(255, 255, 255, 0.8); 
     border: none;
-    border-radius: 30%;      /* Circular shape */
-    color: #125c09;          /* iOS blue color */
+    border-radius: 30%;
+    color: #125c09;
     font-size: 1.2em;
     width: 30px;
     height: 30px;
@@ -566,10 +563,10 @@
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   .carousel-arrow.left {
-    left: 0px;             /* Moved further from the left edge */
+    left: 0px; 
   }
   .carousel-arrow.right {
-    right: 0px;            /* Moved further from the right edge */
+    right: 0px;        
   }
   .shop-item h3 {
     font-size: 1.4em;
@@ -746,53 +743,48 @@
       display: flex;
     }
     .services-container {
-      max-width: 1200px; /* Constrain overall width on desktop */
-      margin: 0 auto;    /* Center container */
+      max-width: 1200px; 
+      margin: 0 auto; 
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between; 
-      gap: 20px;         /* Space between items */
+      gap: 20px; 
       padding: 20px;
     }
   
     .service {
-      /* 3 items per row with space in between */
       flex: 0 0 calc(33.333% - 20px);
       margin: 0;
-      width: 100px;       /* Override the mobile width */
+      width: 100px;  
     }
     .projects-grid {
-      gap: 10px; /* smaller gap on mobile */
+      gap: 10px; 
       justify-content: center;
       flex-wrap: wrap;
     }
-    /* Make each photo smaller and fit three in a row */
     figure.snip1206 {
-      width: calc(33.33% - 10px); /* Three photos per row, subtracting gap */
-      height: 150px;  /* Adjust height automatically */
-      border-width: 4px;  /* Optional: reduce border width on mobile */
+      width: calc(33.33% - 10px); 
+      height: 150px;
+      border-width: 4px;
     }
     figure.snip1206 img {
       height: fit;
     }
     figure.snip1206 h2 {
-      padding: 0 10px;   /* Reduced horizontal padding */
-      font-size: 1em;    /* Smaller font size */
+      padding: 0 10px;
+      font-size: 1em;
     }
-    /* Adjust hover paragraph */
     figure.snip1206 p {
-      padding: 0 10px;   /* Reduced horizontal padding */
-      font-size: 0.7em;  /* Smaller font size */
+      padding: 0 10px;
+      font-size: 0.7em;
     }
   }
   
   @media (max-width: 480px) {
-    /* Prevent horizontal scrolling */
     html, body {
       overflow-x: hidden;
     }
-    
-    /* Global Adjustments */
+
     body {
       font-size: 12px;
       margin: 0;
@@ -812,7 +804,6 @@
       margin: 0;
     }
     
-    /* Home Section */
     #home .overlay {
       font-size: 1.6em;
       top: 10%;
@@ -825,41 +816,37 @@
       gap: 10px;
       padding: 15px;
       width: 100%;
-      max-width: 390px;  /* Maximum width for larger screens */
+      max-width: 390px;
       align-items: start;
-      margin: 0 auto;    /* Centers the container horizontally */
+      margin: 0 auto;
     }
 
-/* Uniform shop item cards */
 .shop-item {
   background: #dfdede;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
   padding: 15px;
-  /* Force consistent height so they line up neatly */
-  min-height: 340px; /* Adjust as needed to accommodate your text */
+  min-height: 340px; 
   display: flex;
   flex-direction: column; 
   justify-content: flex-start;
 }
 
-/* Product images are uniform */
+
 .shop-item img {
   width: 100%;
-  height: 150px; /* Fixed height for uniformity */
+  height: 150px;
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 10px;
 }
-
-/* Optional: If you add carousel buttons in the future */
 .shop-item .carousel {
   position: relative;
 }
 .shop-item .carousel button.carousel-btn {
   position: absolute;
-  top: 50%; /* Center vertically */
+  top: 50%; 
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -884,7 +871,6 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Placeholder Card (if you use one) */
 .placeholder-card {
   background: #c2c2c2;
   font-style: italic;
@@ -898,18 +884,14 @@
   margin-top: 0;
 }
 
-    /* Our Services Section */
-    /* Arrange 3 services side by side */
-   /* Services Section */
    .services-container {
-    background-color: #ffffff;  /* Dark green background */
+    background-color: #ffffff;
     padding: 20px;
-    /* We'll stack items by default */
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between items */
-    max-width: 120%; /* Let it fill the screen on mobile */
-    margin: 0 auto;   /* Center if there's extra space */
+    gap: 20px;
+    max-width: 120%;
+    margin: 0 auto;
   }
   
   .service {
@@ -918,8 +900,8 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
-    margin: 0 auto; /* Center each card horizontally */
-    width: 100%;     /* Slightly narrower than the screen for padding */
+    margin: 0 auto;
+    width: 100%;
   }
   
   .service img {
@@ -937,20 +919,17 @@
     font-size: 1.4em;
     margin-bottom: 10px;
   }
-  /* Adjust the container to layout cards in a row */
   #projects .projects-cards {
     display: flex;
-    flex-direction: row; /* Arrange cards horizontally */
-    flex-wrap: wrap;     /* Allow wrapping if more than 3 cards */
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     height: 50px;
     width: 50px;
-    /* Remove any fixed width/height that might restrict sizing */
   }
-  /* Each project card becomes smaller so 3 fit in a row */
   #projects .project-card {
-    width: calc(33.33% - 10px);  /* Three cards per row, adjust gap as needed */
+    width: calc(33.33% - 10px);
     display: flex;
     height: 50px;
     width: 50px;
@@ -960,14 +939,12 @@
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
-  /* Optionally adjust the image inside the card */
   #projects .project-card .project-image img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Use cover to maintain aspect ratio */
+    object-fit: cover;
     display: block;
   }
-  /* You might also want to adjust text size if needed */
   #projects .project-card .project-text h3 {
     font-size: 0.9em;
   }
@@ -975,11 +952,10 @@
     font-size: 0.75em;
   }
   .about-section {
-    height: auto; /* Let the content dictate height on mobile */
+    height: auto;
     padding: 40px 10px;
   }
 
-  /* Adjust the section header styling for smaller screens */
   .section-header {
     font-size: 18px;
     padding: 8px 16px;
@@ -987,10 +963,9 @@
   .section-header::before {
     width: 90%;
     height: 100%;
-    border-radius: 25px; /* Slightly smaller radius for mobile */
+    border-radius: 25px;
   }
 
-  /* Position the about-content statically so it flows naturally */
   .about-content {
     position: static;
     max-width: 100%; 
@@ -1013,14 +988,12 @@
     align-items: center;
   }
   
-  /* Adjust the map container */
   .map-container {
     width: 100%;
-    height: 300px; /* Adjust this value as needed */
+    height: 300px;
     margin-bottom: 20px;
   }
   
-  /* Adjust the contact form container */
   .contact-form {
     width: 100%;
     padding: 20px;
@@ -1028,7 +1001,6 @@
     border-radius: 8px;
   }
   
-  /* Tweak typography for mobile */
   .contact-form h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
@@ -1042,51 +1014,48 @@
     padding: 12px 16px;
   }
   
-  /* Optionally adjust office details */
   .contact-form .office-hours,
   .contact-form .office-number {
     font-size: 0.8em;
     text-align: center;
   }
   footer {
-    padding: 10px; /* Slightly smaller padding for mobile */
+    padding: 10px;
   }
 
-  /* Top row (logo/title and country) */
   .footer-top {
-    flex-direction: row;          /* Keep side-by-side */
+    flex-direction: row; 
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0;            /* Tighten spacing */
+    margin-bottom: 0; 
   }
   .footer-container {
-    gap: 10px;                   /* Slightly smaller gap */
+    gap: 10px;
   }
   .footer-logo {
-    width: 30px;                 /* Smaller logo */
+    width: 30px; 
     height: 30px;
   }
   .footer-title {
-    font-size: 18px;             /* Slightly smaller title */
+    font-size: 18px; 
   }
   .footer-country {
     font-size: 14px;
   }
 
-  /* Bottom row (copyright and links) */
   .footer-bottom-container {
-    flex-direction: row;         /* Keep side-by-side */
+    flex-direction: row;  
     align-items: center;
     justify-content: space-between;
     margin-top: 0;
   }
   .footer-text {
     font-size: 12px;
-    margin: 0;                   /* Remove extra margin */
+    margin: 0;
   }
   .footer-links {
     display: flex;
-    gap: 10px;                   /* Smaller gap for mobile */
+    gap: 10px;
   }
   .footer-links a {
     font-size: 12px;
