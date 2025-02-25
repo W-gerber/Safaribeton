@@ -247,7 +247,7 @@
     border-radius: 10px;
     background: url('../Images/aboutPhoto.jpg') no-repeat center center / cover;
     padding: 60px 20px;
-    height: 100vh;
+    height: 80vh;
   }
   .section-header {
     position: relative;
