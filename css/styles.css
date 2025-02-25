@@ -44,7 +44,7 @@
     margin-right: 10px;
   }
   header h1 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -359,7 +359,7 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
   }
-  figure.snip1206 h2,
+  figure.snip1206 ,
   figure.snip1206 p {
     margin: 0;
     opacity: 0;
@@ -502,7 +502,7 @@
     text-align: center;
   }
   #shop h2 {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-bottom: 20px;
   }
   .shop-container {
@@ -800,7 +800,7 @@
       width: 40px;
     }
     header h1 {
-      font-size: 18px;
+      font-size: 15px;
       margin: 0;
     }
     
@@ -977,7 +977,7 @@
   }
 
   .about-content h2 {
-    font-size: 1.3em;
+    font-size: 1.5em;
   }
 
   .about-content p {
