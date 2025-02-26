@@ -307,7 +307,7 @@
   /* -------------------- */
   /*      PROJECTS        */
   /* -------------------- */
-  .projects-section {
+ .projects-section {
     padding: 60px 20px;
     background-color: #ffffff;
     text-align: center;
@@ -317,6 +317,7 @@
     gap: 60px;
     justify-content: center;
     flex-wrap: wrap;
+    min-height: 400px; /* Ensure the container doesn't collapse */
   }
   figure.snip1206 {
     font-family: 'Raleway', Arial, sans-serif;
@@ -330,12 +331,15 @@
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     cursor: pointer;
+    transition: transform 0.3s ease;
   }
   figure.snip1206 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: opacity 0.35s;
+    z-index: 2;       /* Ensure the image is above the overlay */
+    position: relative;
   }
   figure.snip1206::after {
     background: rgba(0, 77, 64, 0.753);
@@ -348,6 +352,8 @@
     opacity: 0;
     transform: skew(-45deg) scaleX(0);
     transition: all 0.3s ease-in-out;
+    z-index: 1;       /* Lower than the image */
+    pointer-events: none;
   }
   figure.snip1206 figcaption {
     position: absolute;
@@ -355,11 +361,11 @@
     left: 0;
     width: 100%;
     transform: translateY(-50%);
-    z-index: 1;
+    z-index: 3;       /* Above the image and overlay on hover */
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
   }
-  figure.snip1206 ,
+  figure.snip1206 h2,
   figure.snip1206 p {
     margin: 0;
     opacity: 0;
@@ -381,7 +387,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 4;
   }
   figure.snip1206:hover::after {
     transform: skew(-45deg) scaleX(1);
@@ -397,7 +403,6 @@
   figure.snip1206:hover {
     transform: scale(1.05);
   }
-  
   /* -------------------- */
   /*       CONTACT        */
   /* -------------------- */
@@ -751,33 +756,35 @@
       gap: 20px; 
       padding: 20px;
     }
-  
     .service {
       flex: 0 0 calc(33.333% - 20px);
       margin: 0;
       width: 100px;  
     }
     .projects-grid {
-         gap: 10px; 
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    figure.snip1206 {
-      width: calc(33.33% - 10px); 
-      height: 150px;
-      border-width: 4px;
-    }
-    figure.snip1206 img {
-      height: fit;
-    }
-    figure.snip1206 h2 {
-      padding: 0 10px;
-      font-size: 1em;
-    }
-    figure.snip1206 p {
-      padding: 0 10px;
-      font-size: 0.7em;
-    }
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: auto;
+  }
+  figure.snip1206 {
+    width: 90%; 
+    height: auto;
+    border-width: 4px;
+  }
+  figure.snip1206 img {
+    height: auto;
+    object-fit: cover;
+  }
+  figure.snip1206 h2 {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+  figure.snip1206 p {
+    font-size: 0.8em;
+    padding: 0 10px;
+  }
+}
 }
   
   @media (max-width: 480px) {
