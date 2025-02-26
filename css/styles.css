@@ -247,7 +247,7 @@
   .about-section {
     position: relative;
     border-radius: 10px;
-    background: url('../images/aboutPhoto.jpg') no-repeat center center / cover;
+    background: url('../Images/aboutPhoto.jpg') no-repeat center center / cover;
     padding: 60px 20px;
     height: 80vh;
   }
