@@ -758,28 +758,26 @@
       width: 100px;  
     }
     .projects-grid {
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  figure.snip1206 {
-    width: 90%;       
-    height: auto;    
-    border-width: 4px;
-  }
-  figure.snip1206 img {
-    height: auto;     
-    object-fit: cover;
-  }
-
-  figure.snip1206 h2 {
-    font-size: 1em;
-    padding: 0 10px;
-  }
-  figure.snip1206 p {
-    font-size: 0.8em;
-    padding: 0 10px;
-  }
+         gap: 10px; 
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    figure.snip1206 {
+      width: calc(33.33% - 10px); 
+      height: 150px;
+      border-width: 4px;
+    }
+    figure.snip1206 img {
+      height: fit;
+    }
+    figure.snip1206 h2 {
+      padding: 0 10px;
+      font-size: 1em;
+    }
+    figure.snip1206 p {
+      padding: 0 10px;
+      font-size: 0.7em;
+    }
 }
   
   @media (max-width: 480px) {
