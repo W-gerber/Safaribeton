@@ -1,3 +1,4 @@
+/* Reset and Root Variables */
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +10,7 @@
     --text-color: white;
   }
   
+  /* Global Typography */
   body {
     font-family: 'Open Sans', sans-serif;
   }
@@ -245,7 +247,7 @@
   .about-section {
     position: relative;
     border-radius: 10px;
-    background: url('../Images/aboutPhoto.jpg') no-repeat center center / cover;
+    background: url('../images/aboutPhoto.jpg') no-repeat center center / cover;
     padding: 60px 20px;
     height: 80vh;
   }
@@ -307,7 +309,7 @@
   /* -------------------- */
   /*      PROJECTS        */
   /* -------------------- */
- .projects-section {
+  .projects-section {
     padding: 60px 20px;
     background-color: #ffffff;
     text-align: center;
@@ -318,7 +320,7 @@
     gap: 60px;
     justify-content: center;
     flex-wrap: wrap;
-    min-height: 400px; 
+    min-height: 400px; /* Ensure the container doesn't collapse */
   }
   
   figure.snip1206 {
@@ -341,7 +343,7 @@
     height: 100%;
     object-fit: cover;
     transition: opacity 0.35s;
-    z-index: 2;
+    z-index: 2;       /* Ensure the image is above the overlay */
     position: relative;
   }
   
@@ -356,28 +358,28 @@
     opacity: 0;
     transform: skew(-45deg) scaleX(0);
     transition: all 0.3s ease-in-out;
-    z-index: 1;
+    z-index: 1;       /* Lower than the image */
     pointer-events: none;
   }
   
   figure.snip1206 figcaption {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    z-index: 3;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  figure.snip1206:hover figcaption {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+figure.snip1206:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
   
   figure.snip1206 h2,
   figure.snip1206 p {
@@ -407,6 +409,7 @@
     z-index: 4;
   }
   
+  /* Hover effects for desktop */
   figure.snip1206:hover::after {
     transform: skew(-45deg) scaleX(1);
     opacity: 1;
@@ -420,9 +423,11 @@
     transition-delay: 0.2s;
   }
   
+  /* Redesigned green overlay with a dynamic shape */
   figure.snip1206:hover figcaption {
     background: linear-gradient(135deg, rgba(0, 77, 64, 0.85) 0%, rgba(0, 77, 64, 0.65) 100%);
     padding: 20px;
+    /* Use a clip-path to create a dynamic, non-rectangular shape */
     clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
@@ -776,19 +781,20 @@
       display: flex;
     }
     .services-container {
-      max-width: 1200px; 
-      margin: 0 auto;  
+      max-width: 1200px; /* Constrain overall width on desktop */
+      margin: 0 auto;    /* Center container */
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between; 
-      gap: 20px; 
+      gap: 20px;         /* Space between items */
       padding: 20px;
     }
   
     .service {
+      /* 3 items per row with space in between */
       flex: 0 0 calc(33.333% - 20px);
       margin: 0;
-      width: 100px; 
+      width: 100px;       /* Override the mobile width */
     }
     .projects-grid {
       gap: 10px;
@@ -796,8 +802,8 @@
       flex-wrap: wrap;
     }
     figure.snip1206 {
-      width: 90%;
-      height: 300px; 
+      width: 90%;       /* Responsive width */
+      height: 200px;    /* Fixed height ensures the overlay area exists */
       border-width: 4px;
       position: relative;
     }
@@ -831,13 +837,14 @@
       padding: 0 10px;
     }
   }
-  }
   
   @media (max-width: 480px) {
+    /* Prevent horizontal scrolling */
     html, body {
       overflow-x: hidden;
     }
     
+    /* Global Adjustments */
     body {
       font-size: 12px;
       margin: 0;
@@ -857,6 +864,7 @@
       margin: 0;
     }
     
+    /* Home Section */
     #home .overlay {
       font-size: 1.6em;
       top: 10%;
@@ -869,38 +877,41 @@
       gap: 10px;
       padding: 15px;
       width: 100%;
-      max-width: 390px;  
+      max-width: 390px;  /* Maximum width for larger screens */
       align-items: start;
-      margin: 0 auto; 
+      margin: 0 auto;    /* Centers the container horizontally */
     }
 
-
+/* Uniform shop item cards */
 .shop-item {
   background: #dfdede;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
   padding: 15px;
-  min-height: 340px; 
+  /* Force consistent height so they line up neatly */
+  min-height: 340px; /* Adjust as needed to accommodate your text */
   display: flex;
   flex-direction: column; 
   justify-content: flex-start;
 }
 
+/* Product images are uniform */
 .shop-item img {
   width: 100%;
-  height: 150px; 
+  height: 150px; /* Fixed height for uniformity */
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
+/* Optional: If you add carousel buttons in the future */
 .shop-item .carousel {
   position: relative;
 }
 .shop-item .carousel button.carousel-btn {
   position: absolute;
-  top: 50%;
+  top: 50%; /* Center vertically */
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -925,6 +936,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* Placeholder Card (if you use one) */
 .placeholder-card {
   background: #c2c2c2;
   font-style: italic;
@@ -937,23 +949,29 @@
 .placeholder-card h3 {
   margin-top: 0;
 }
+
+    /* Our Services Section */
+    /* Arrange 3 services side by side */
+   /* Services Section */
    .services-container {
-    background-color: #ffffff;  
+    background-color: #ffffff;  /* Dark green background */
     padding: 20px;
+    /* We'll stack items by default */
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 120%; 
-    margin: 0 auto; 
-  } 
+    gap: 20px; /* Space between items */
+    max-width: 120%; /* Let it fill the screen on mobile */
+    margin: 0 auto;   /* Center if there's extra space */
+  }
+  
   .service {
     background-color: #003c27;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
-    margin: 0 auto;
-    width: 100%;
+    margin: 0 auto; /* Center each card horizontally */
+    width: 100%;     /* Slightly narrower than the screen for padding */
   }
   
   .service img {
@@ -971,17 +989,20 @@
     font-size: 1.4em;
     margin-bottom: 10px;
   }
+  /* Adjust the container to layout cards in a row */
   #projects .projects-cards {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: row; /* Arrange cards horizontally */
+    flex-wrap: wrap;     /* Allow wrapping if more than 3 cards */
     justify-content: center;
     gap: 10px;
     height: 50px;
     width: 50px;
+    /* Remove any fixed width/height that might restrict sizing */
   }
+  /* Each project card becomes smaller so 3 fit in a row */
   #projects .project-card {
-    width: calc(33.33% - 10px);
+    width: calc(33.33% - 10px);  /* Three cards per row, adjust gap as needed */
     display: flex;
     height: 50px;
     width: 50px;
@@ -991,12 +1012,14 @@
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
+  /* Optionally adjust the image inside the card */
   #projects .project-card .project-image img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: cover; /* Use cover to maintain aspect ratio */
     display: block;
   }
+  /* You might also want to adjust text size if needed */
   #projects .project-card .project-text h3 {
     font-size: 0.9em;
   }
@@ -1004,9 +1027,11 @@
     font-size: 0.75em;
   }
   .about-section {
-    height: auto; 
+    height: auto; /* Let the content dictate height on mobile */
     padding: 40px 10px;
   }
+
+  /* Adjust the section header styling for smaller screens */
   .section-header {
     font-size: 18px;
     padding: 8px 16px;
@@ -1014,8 +1039,10 @@
   .section-header::before {
     width: 90%;
     height: 100%;
-    border-radius: 25px;
+    border-radius: 25px; /* Slightly smaller radius for mobile */
   }
+
+  /* Position the about-content statically so it flows naturally */
   .about-content {
     position: static;
     max-width: 100%; 
@@ -1037,20 +1064,23 @@
     flex-direction: column;
     align-items: center;
   }
-
+  
+  /* Adjust the map container */
   .map-container {
     width: 100%;
-    height: 300px; 
+    height: 300px; /* Adjust this value as needed */
     margin-bottom: 20px;
   }
- 
+  
+  /* Adjust the contact form container */
   .contact-form {
     width: 100%;
     padding: 20px;
     margin-left: 0;
     border-radius: 8px;
   }
-
+  
+  /* Tweak typography for mobile */
   .contact-form h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
@@ -1063,49 +1093,52 @@
     font-size: 1em;
     padding: 12px 16px;
   }
-
+  
+  /* Optionally adjust office details */
   .contact-form .office-hours,
   .contact-form .office-number {
     font-size: 0.8em;
     text-align: center;
   }
   footer {
-    padding: 10px; 
+    padding: 10px; /* Slightly smaller padding for mobile */
   }
 
+  /* Top row (logo/title and country) */
   .footer-top {
-    flex-direction: row;
+    flex-direction: row;          /* Keep side-by-side */
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0;
+    margin-bottom: 0;            /* Tighten spacing */
   }
   .footer-container {
-    gap: 10px;
+    gap: 10px;                   /* Slightly smaller gap */
   }
   .footer-logo {
-    width: 30px;
+    width: 30px;                 /* Smaller logo */
     height: 30px;
   }
   .footer-title {
-    font-size: 18px;
+    font-size: 18px;             /* Slightly smaller title */
   }
   .footer-country {
     font-size: 14px;
   }
 
+  /* Bottom row (copyright and links) */
   .footer-bottom-container {
-    flex-direction: row;
+    flex-direction: row;         /* Keep side-by-side */
     align-items: center;
     justify-content: space-between;
     margin-top: 0;
   }
   .footer-text {
     font-size: 12px;
-    margin: 0;
+    margin: 0;                   /* Remove extra margin */
   }
   .footer-links {
     display: flex;
-    gap: 10px;
+    gap: 10px;                   /* Smaller gap for mobile */
   }
   .footer-links a {
     font-size: 12px;
