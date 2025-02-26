@@ -309,18 +309,20 @@
   /* -------------------- */
   /*      PROJECTS        */
   /* -------------------- */
-  .projects-section {
+ .projects-section {
     padding: 60px 20px;
     background-color: #ffffff;
     text-align: center;
   }
+  
   .projects-grid {
     display: flex;
     gap: 60px;
     justify-content: center;
     flex-wrap: wrap;
-    min-height: 400px; /* Ensure the container doesn't collapse */
+    min-height: 400px; 
   }
+  
   figure.snip1206 {
     font-family: 'Raleway', Arial, sans-serif;
     color: #fff;
@@ -335,14 +337,16 @@
     cursor: pointer;
     transition: transform 0.3s ease;
   }
+  
   figure.snip1206 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: opacity 0.35s;
-    z-index: 2;       /* Ensure the image is above the overlay */
+    z-index: 2;
     position: relative;
   }
+  
   figure.snip1206::after {
     background: rgba(0, 77, 64, 0.753);
     content: '';
@@ -354,35 +358,48 @@
     opacity: 0;
     transform: skew(-45deg) scaleX(0);
     transition: all 0.3s ease-in-out;
-    z-index: 1;       /* Lower than the image */
+    z-index: 1;
     pointer-events: none;
   }
+  
   figure.snip1206 figcaption {
     position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    transform: translateY(-50%);
-    z-index: 3;       /* Above the image and overlay on hover */
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 3;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 4px;
   }
+  
+  figure.snip1206:hover figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   figure.snip1206 h2,
   figure.snip1206 p {
     margin: 0;
     opacity: 0;
   }
+  
   figure.snip1206 h2 {
     padding: 0 30px;
     display: inline-block;
     font-weight: 400;
     text-transform: uppercase;
   }
+  
   figure.snip1206 p {
     padding: 0 50px;
     font-size: 0.8em;
     font-weight: 500;
   }
+  
   figure.snip1206 a {
     position: absolute;
     left: 0;
@@ -391,21 +408,30 @@
     bottom: 0;
     z-index: 4;
   }
+  
   figure.snip1206:hover::after {
     transform: skew(-45deg) scaleX(1);
     opacity: 1;
     transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
+  
   figure.snip1206:hover figcaption,
   figure.snip1206:hover h2,
   figure.snip1206:hover p {
     opacity: 1;
     transition-delay: 0.2s;
   }
+  
+  figure.snip1206:hover figcaption {
+    background: linear-gradient(135deg, rgba(0, 77, 64, 0.85) 0%, rgba(0, 77, 64, 0.65) 100%);
+    padding: 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
   figure.snip1206:hover {
     transform: scale(1.05);
   }
-  
   /* -------------------- */
   /*       CONTACT        */
   /* -------------------- */
@@ -752,35 +778,51 @@
       display: flex;
     }
     .services-container {
-      max-width: 1200px; /* Constrain overall width on desktop */
-      margin: 0 auto;    /* Center container */
+      max-width: 1200px; 
+      margin: 0 auto;  
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between; 
-      gap: 20px;         /* Space between items */
+      gap: 20px; 
       padding: 20px;
     }
   
     .service {
-      /* 3 items per row with space in between */
       flex: 0 0 calc(33.333% - 20px);
       margin: 0;
-      width: 100px;       /* Override the mobile width */
+      width: 100px; 
     }
     .projects-grid {
       gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
-      min-height: auto; /* Let height adjust naturally */
     }
     figure.snip1206 {
-      width: 90%;       /* Responsive width */
-      height: auto;     /* Let height adjust automatically */
+      width: 90%;
+      height: 300px; 
       border-width: 4px;
+      position: relative;
     }
     figure.snip1206 img {
-      height: auto;     /* Scale image height with container */
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+    }
+    figure.snip1206::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 77, 64, 0.85);
+      transition: bottom 0.3s ease-in-out;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    figure.snip1206:hover::after {
+      bottom: 0;
     }
     figure.snip1206 h2 {
       font-size: 1em;
@@ -791,14 +833,13 @@
       padding: 0 10px;
     }
   }
+  }
   
   @media (max-width: 480px) {
-    /* Prevent horizontal scrolling */
     html, body {
       overflow-x: hidden;
     }
     
-    /* Global Adjustments */
     body {
       font-size: 12px;
       margin: 0;
@@ -818,7 +859,6 @@
       margin: 0;
     }
     
-    /* Home Section */
     #home .overlay {
       font-size: 1.6em;
       top: 10%;
@@ -831,41 +871,38 @@
       gap: 10px;
       padding: 15px;
       width: 100%;
-      max-width: 390px;  /* Maximum width for larger screens */
+      max-width: 390px;  
       align-items: start;
-      margin: 0 auto;    /* Centers the container horizontally */
+      margin: 0 auto; 
     }
 
-/* Uniform shop item cards */
+
 .shop-item {
   background: #dfdede;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
   padding: 15px;
-  /* Force consistent height so they line up neatly */
-  min-height: 340px; /* Adjust as needed to accommodate your text */
+  min-height: 340px; 
   display: flex;
   flex-direction: column; 
   justify-content: flex-start;
 }
 
-/* Product images are uniform */
 .shop-item img {
   width: 100%;
-  height: 150px; /* Fixed height for uniformity */
+  height: 150px; 
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
-/* Optional: If you add carousel buttons in the future */
 .shop-item .carousel {
   position: relative;
 }
 .shop-item .carousel button.carousel-btn {
   position: absolute;
-  top: 50%; /* Center vertically */
+  top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -890,7 +927,6 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Placeholder Card (if you use one) */
 .placeholder-card {
   background: #c2c2c2;
   font-style: italic;
@@ -903,29 +939,23 @@
 .placeholder-card h3 {
   margin-top: 0;
 }
-
-    /* Our Services Section */
-    /* Arrange 3 services side by side */
-   /* Services Section */
    .services-container {
-    background-color: #ffffff;  /* Dark green background */
+    background-color: #ffffff;  
     padding: 20px;
-    /* We'll stack items by default */
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between items */
-    max-width: 120%; /* Let it fill the screen on mobile */
-    margin: 0 auto;   /* Center if there's extra space */
-  }
-  
+    gap: 20px;
+    max-width: 120%; 
+    margin: 0 auto; 
+  } 
   .service {
     background-color: #003c27;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
-    margin: 0 auto; /* Center each card horizontally */
-    width: 100%;     /* Slightly narrower than the screen for padding */
+    margin: 0 auto;
+    width: 100%;
   }
   
   .service img {
@@ -943,20 +973,17 @@
     font-size: 1.4em;
     margin-bottom: 10px;
   }
-  /* Adjust the container to layout cards in a row */
   #projects .projects-cards {
     display: flex;
-    flex-direction: row; /* Arrange cards horizontally */
-    flex-wrap: wrap;     /* Allow wrapping if more than 3 cards */
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     height: 50px;
     width: 50px;
-    /* Remove any fixed width/height that might restrict sizing */
   }
-  /* Each project card becomes smaller so 3 fit in a row */
   #projects .project-card {
-    width: calc(33.33% - 10px);  /* Three cards per row, adjust gap as needed */
+    width: calc(33.33% - 10px);
     display: flex;
     height: 50px;
     width: 50px;
@@ -966,14 +993,12 @@
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
-  /* Optionally adjust the image inside the card */
   #projects .project-card .project-image img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Use cover to maintain aspect ratio */
+    object-fit: cover;
     display: block;
   }
-  /* You might also want to adjust text size if needed */
   #projects .project-card .project-text h3 {
     font-size: 0.9em;
   }
@@ -981,11 +1006,9 @@
     font-size: 0.75em;
   }
   .about-section {
-    height: auto; /* Let the content dictate height on mobile */
+    height: auto; 
     padding: 40px 10px;
   }
-
-  /* Adjust the section header styling for smaller screens */
   .section-header {
     font-size: 18px;
     padding: 8px 16px;
@@ -993,10 +1016,8 @@
   .section-header::before {
     width: 90%;
     height: 100%;
-    border-radius: 25px; /* Slightly smaller radius for mobile */
+    border-radius: 25px;
   }
-
-  /* Position the about-content statically so it flows naturally */
   .about-content {
     position: static;
     max-width: 100%; 
@@ -1018,23 +1039,20 @@
     flex-direction: column;
     align-items: center;
   }
-  
-  /* Adjust the map container */
+
   .map-container {
     width: 100%;
-    height: 300px; /* Adjust this value as needed */
+    height: 300px; 
     margin-bottom: 20px;
   }
-  
-  /* Adjust the contact form container */
+ 
   .contact-form {
     width: 100%;
     padding: 20px;
     margin-left: 0;
     border-radius: 8px;
   }
-  
-  /* Tweak typography for mobile */
+
   .contact-form h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
@@ -1047,52 +1065,49 @@
     font-size: 1em;
     padding: 12px 16px;
   }
-  
-  /* Optionally adjust office details */
+
   .contact-form .office-hours,
   .contact-form .office-number {
     font-size: 0.8em;
     text-align: center;
   }
   footer {
-    padding: 10px; /* Slightly smaller padding for mobile */
+    padding: 10px; 
   }
 
-  /* Top row (logo/title and country) */
   .footer-top {
-    flex-direction: row;          /* Keep side-by-side */
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0;            /* Tighten spacing */
+    margin-bottom: 0;
   }
   .footer-container {
-    gap: 10px;                   /* Slightly smaller gap */
+    gap: 10px;
   }
   .footer-logo {
-    width: 30px;                 /* Smaller logo */
+    width: 30px;
     height: 30px;
   }
   .footer-title {
-    font-size: 18px;             /* Slightly smaller title */
+    font-size: 18px;
   }
   .footer-country {
     font-size: 14px;
   }
 
-  /* Bottom row (copyright and links) */
   .footer-bottom-container {
-    flex-direction: row;         /* Keep side-by-side */
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin-top: 0;
   }
   .footer-text {
     font-size: 12px;
-    margin: 0;                   /* Remove extra margin */
+    margin: 0;
   }
   .footer-links {
     display: flex;
-    gap: 10px;                   /* Smaller gap for mobile */
+    gap: 10px;
   }
   .footer-links a {
     font-size: 12px;
