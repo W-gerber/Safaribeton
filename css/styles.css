@@ -1,4 +1,3 @@
-/* Reset and Root Variables */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +9,6 @@
     --text-color: white;
   }
   
-  /* Global Typography */
   body {
     font-family: 'Open Sans', sans-serif;
   }
