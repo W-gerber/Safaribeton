@@ -1,5 +1,4 @@
 (function () {
-  // Load Google Analytics asynchronously
   const gaScript = document.createElement("script");
   gaScript.async = true;
   gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XWG4YB3C13";
@@ -13,7 +12,6 @@
   gtag("config", "G-XWG4YB3C13");
 
   document.addEventListener("DOMContentLoaded", () => {
-    // (Optional) Animate elements on scroll if they have the 'scroll-animate' class.
     const animatedElements = document.querySelectorAll(".scroll-animate");
     if (animatedElements.length > 0) {
       const animateObserver = new IntersectionObserver(
@@ -30,7 +28,6 @@
       animatedElements.forEach((el) => animateObserver.observe(el));
     }
 
-    // Consolidated scroll handler: update active nav link and header style.
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav ul li a");
     const header = document.querySelector("header");
@@ -52,12 +49,10 @@
     handleScroll();
     window.addEventListener("scroll", handleScroll);
 
-    // Carousel functionality for shop items.
     document.querySelectorAll(".shop-item").forEach((item) => {
       const images = item.querySelectorAll(".carousel img");
       let currentImageIndex = 0;
 
-      // Create left and right arrow buttons.
       const leftArrow = document.createElement("button");
       leftArrow.classList.add("carousel-arrow", "left");
       leftArrow.textContent = "<";
@@ -87,51 +82,39 @@
       updateImageDisplay();
     });
 
-    // Initialize EmailJS.
-    const contactForm = document.getElementById("contact-form");
+    emailjs.init("SxH6Bi3FPlFrT6Vbu");
 
+    const contactForm = document.getElementById("contact-form");
     if (contactForm) {
-      contactForm.addEventListener("submit", async function (event) {
+      contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
-    
+
         const submitButton = this.querySelector("button[type='submit']");
         submitButton.disabled = true;
         submitButton.textContent = "Sending...";
-    
-        const formData = new FormData(this);
-        const email = formData.get("email");
-        const message = formData.get("message");
-    
-        try {
-          const response = await fetch("/api/sendEmail", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, message }),
-          });
-    
-          const result = await response.json();
-    
-          if (result.success) {
+
+        emailjs
+          .sendForm("service_bkz7sda", "template_jqrv3n2", this)
+          .then((response) => {
+            console.log("SUCCESS!", response);
             showPopup("✅ Your message has been sent successfully!", true);
-          } else {
+          })
+          .catch((error) => {
+            console.error("FAILED...", error);
             showPopup("❌ Oops! Something went wrong.", false);
-          }
-        } catch (error) {
-          console.error("Request error:", error);
-          showPopup("❌ Failed to send email.", false);
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = "Send Message";
-        }
+          })
+          .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+          });
       });
     }
 
-    // Function to display temporary popup messages.
     function showPopup(message, isSuccess) {
       const popup = document.createElement("div");
       popup.classList.add("popup-message");
       popup.textContent = message;
-      popup.style.backgroundColor = isSuccess ? "rgba(255, 255, 255, 0.9)" : "rgba(255, 85, 85, 0.9)";
+      popup.style.backgroundColor = isSuccess ? "rgba(0, 255, 0, 0.75)" : "rgba(204, 42, 42, 0.75)";
       popup.style.color = isSuccess ? "#333" : "#fff";
 
       document.body.appendChild(popup);
@@ -142,7 +125,6 @@
       }, 2500);
     }
 
-    // Add a temporary hover effect to project links.
     document.querySelectorAll("figure.snip1206 a").forEach((link) => {
       link.addEventListener("click", function (event) {
         event.preventDefault();
