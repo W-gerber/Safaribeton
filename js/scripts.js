@@ -114,7 +114,7 @@
       const popup = document.createElement("div");
       popup.classList.add("popup-message");
       popup.textContent = message;
-      popup.style.backgroundColor = isSuccess ? "rgba(0, 255, 0, 0.75)" : "rgba(204, 42, 42, 0.75)";
+      popup.style.backgroundColor = isSuccess ? "rgba(107, 255, 107, 0.75)" : "rgba(197, 65, 65, 0.75)";
       popup.style.color = isSuccess ? "#333" : "#fff";
 
       document.body.appendChild(popup);
