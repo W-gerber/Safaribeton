@@ -314,7 +314,7 @@ margin: -40px 0 0 0px;
   top: 50%;
   transform: translate(-50%, -50%);
   width: calc(80% + 40px);
-  height: 120%;
+  height: 100%;
   background: linear-gradient(45deg, #003c27, #007A33);
   border-radius: 50px;
   z-index: 0;
