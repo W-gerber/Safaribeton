@@ -242,8 +242,8 @@ transform: translateY(-100%);
 }
 
 .img-container {
-  height: 250px;
-  width: 280px;
+  height: 350px;
+  width: 350px;
   border-radius: 0px 0px 0px 0px;
   display: inline-block;
 }
