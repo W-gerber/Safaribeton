@@ -398,6 +398,7 @@ margin: -40px 0 0 0px;
   flex: 0 0 750px;       /* Card width */
   margin: 0 15px;        /* Spacing between cards */
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 18px rgb(0 0 0 / 67%);
   text-align: center;
   position: relative;
 }
