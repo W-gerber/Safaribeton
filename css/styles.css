@@ -373,6 +373,7 @@ margin: -40px 0 0 0px;
   margin-bottom: 40px;
 }
 
+
 /* Overall slider container */
 .projects-slider {
   position: relative;
@@ -398,7 +399,6 @@ margin: -40px 0 0 0px;
   flex: 0 0 750px;       /* Card width */
   margin: 0 15px;        /* Spacing between cards */
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  box-shadow: 0 8px 18px rgb(0 0 0 / 67%);
   text-align: center;
   position: relative;
 }
@@ -453,8 +453,8 @@ margin: -40px 0 0 0px;
 .slider-arrow {
   position: absolute; /* Changed from fixed to absolute */
   bottom: 20px; /* Adjusted to position above the contact section */
-  background-color: rgb(28 61 49 / 62%);
-  color: #32cd32;
+  background-color:rgb(97 164 104 / 65%);
+  color: #ffffff;
   border: none;
   border-radius: 50%;
   font-size: 1.8rem;
@@ -540,7 +540,7 @@ margin: -40px 0 0 0px;
   padding: 12px;
   margin-bottom: 20px;
   border: 1px solid rgba(50, 205, 50, 0.5);
-  background: white;
+  background: #f5f5f5;;
   color: black;
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
@@ -1073,7 +1073,7 @@ padding: 70px 10px 20px;
   height: 40px;
 }
 .slider-arrow.left {
-  left: 335px;
+  left: 280px;
 }
 .slider-arrow.right {
   right: 10px;
