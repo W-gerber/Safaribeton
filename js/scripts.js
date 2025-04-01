@@ -93,7 +93,6 @@
 
       updateImageDisplay();
     });
-
     // 4) Contact form (EmailJS)
     emailjs.init("SxH6Bi3FPlFrT6Vbu");
     const contactForm = document.getElementById("contact-form");
