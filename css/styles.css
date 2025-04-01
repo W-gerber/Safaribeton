@@ -317,7 +317,6 @@ margin: -40px 0 0 0px;
 
 .about-content {
   position: absolute;
-  /* right: 0; */ /* Changed from left to right */
   top: 50%;
   transform: translateY(-50%);
   width: 400px;
@@ -352,7 +351,7 @@ margin: -40px 0 0 0px;
 /* -------------------- */
 .projects-section {
   background-color: #f5f5f5; /* Dark background, Apple-like */
-  padding: 40px 20px;
+  padding: 80px 20px;
   color: #f5f5f5;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-align: center;
@@ -361,49 +360,41 @@ margin: -40px 0 0 0px;
   padding-bottom: 120px; /* Increased padding to make room for arrows */
 }
 
-/* The heading "Featured Projects" in a subtle Apple-like style */
 .section-header {
   display: inline-block;
   padding: 10px 30px;
-  /* background-color: #333; */
-  /* color: #fff; */
   border-radius: 9999px;
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 40px;
 }
 
-
-/* Overall slider container */
 .projects-slider {
   position: relative;
-  width: 100vw;  /* Takes full viewport width */
+  width: 100vw;
   margin: 0 auto;
-  overflow: hidden; /* Ensure overflow is hidden */
-  margin-bottom: 80px; /* Add space for the arrows */
-  padding-bottom: 100px; /* Add padding to make room for the arrows */
+  overflow: hidden;
+  margin-bottom: 80px;
+  padding-bottom: 100px;
 }
 
-/* Slider track: horizontally scrollable with transform */
 .projects-track {
   display: flex;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-left: calc((100vw - 550px) / 2); /* Center the first card */
+  margin-left: calc((100vw - 550px) / 2);
 }
 
-/* Each project card */
 .project-card {
-  background: #ffffff;   /* A slightly lighter black than the background for contrast */
+  background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
-  flex: 0 0 750px;       /* Card width */
-  margin: 0 15px;        /* Spacing between cards */
+  flex: 0 0 750px;
+  margin: 0 15px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   text-align: center;
   position: relative;
 }
 
-/* Image container inside each card */
 .project-image {
   width: 100%;
   height: 400px;
@@ -421,7 +412,6 @@ margin: -40px 0 0 0px;
   transform: scale(1.05);
 }
 
-/* Titles & descriptions */
 .project-title {
   color: #599f61;
   font-size: 1.3rem;
@@ -436,23 +426,19 @@ margin: -40px 0 0 0px;
   margin: 0 10px 10px;
 }
 
-/* On hover, slightly scale any card (like Apple’s subtle zoom) */
 .project-card:hover {
   transform: scale(1.03);
 }
 
-/* Make the center (active) card stand out even more if you wish:
-   you can add a .active class with JS to highlight the center card */
 .project-card.active {
   transform: scale(1.07);
   z-index: 2;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Arrow Buttons */
 .slider-arrow {
-  position: absolute; /* Changed from fixed to absolute */
-  bottom: 20px; /* Adjusted to position above the contact section */
+  position: absolute; 
+  bottom: 20px; 
   background-color:rgb(97 164 104 / 65%);
   color: #ffffff;
   border: none;
@@ -466,9 +452,9 @@ margin: -40px 0 0 0px;
   transition: background-color 0.3s ease;
 }
 
-/* Position both arrows in bottom right */
+
 .slider-arrow.left {
-  right: 90px; /* Increased spacing */
+  right: 90px; 
 }
 
 .slider-arrow.right {
@@ -481,7 +467,7 @@ margin: -40px 0 0 0px;
 /*       CONTACT        */
 /* -------------------- */
 #contact {
-  padding: 20px 20px;
+  padding: 60px 20px;
   background: rgb(223 223 222 / 31%);
   text-align: center;
 }
@@ -616,7 +602,7 @@ margin: -40px 0 0 0px;
 .carousel img:first-child {
   display: block;
 }
-/* Carousel Arrow Buttons */
+
 .carousel-arrow {
   position: absolute;
   top: 50%; 
@@ -1216,7 +1202,6 @@ footer {
   .about-content h2 {
     font-size: 1.8em;
     margin-bottom: 15px;
-    /* align-items: center; */
   }
 
   .about-content p {
