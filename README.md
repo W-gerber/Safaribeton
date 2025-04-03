@@ -19,7 +19,7 @@ Ensure you have the following installed:
 
 ### Setup  
 
-```bash
+###bash
 # Clone the repository
 git clone https://github.com/W-gerber/Safaribeton.git
 cd Safaribeton
