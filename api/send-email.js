@@ -5,6 +5,7 @@ export default async function handler(req, res) {
     }
   
     try {
+      console.log("Request received with body:", req.body);
       const { name, surname, email, number, message } = req.body;
   
       if (!name || !surname || !email || !number || !message) {
