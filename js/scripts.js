@@ -94,7 +94,6 @@
       updateImageDisplay();
     });
     // 4) Contact form (EmailJS)
-    emailjs.init("SxH6Bi3FPlFrT6Vbu");
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
       contactForm.addEventListener("submit", function (event) {
@@ -104,10 +103,23 @@
         submitButton.disabled = true;
         submitButton.textContent = "Sending...";
 
-        emailjs
-          .sendForm("service_bkz7sda", "template_jqrv3n2", this)
-          .then((response) => {
-            console.log("SUCCESS!", response);
+        // Prepare form data
+        const formData = {
+          name: this.querySelector("#name").value,
+          surname: this.querySelector("#surname").value,
+          email: this.querySelector("#email").value,
+          number: this.querySelector("#Number").value,
+          message: this.querySelector("#message").value
+        };
+
+        fetch("/api/send-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("SUCCESS!", data);
             showPopup("✅ Your message has been sent successfully!", true);
           })
           .catch((error) => {
