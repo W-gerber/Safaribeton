@@ -94,7 +94,12 @@
       updateImageDisplay();
     });
     // 4) Contact form (EmailJS)
-    emailjs.init("SxH6Bi3FPlFrT6Vbu");
+    // Ensure all form fields are included in the EmailJS template
+    // Load sensitive data from environment variables
+    const emailJsUserId = process.env.EMAILJS_USER_ID;
+    const emailJsTemplateId = process.env.EMAILJS_TEMPLATE_ID;
+    const emailJsServiceId = process.env.EMAILJS_SERVICE_ID;
+    emailjs.init(emailJsUserId);
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
       contactForm.addEventListener("submit", function (event) {
@@ -104,8 +109,16 @@
         submitButton.disabled = true;
         submitButton.textContent = "Sending...";
 
+        const formData = {
+          user_name: document.getElementById("name").value,
+          user_surname: document.getElementById("surname").value,
+          user_email: document.getElementById("email").value,
+          user_Number: document.getElementById("Number").value,
+          message: document.getElementById("message").value,
+        };
+
         emailjs
-          .sendForm("service_bkz7sda", "template_jqrv3n2", this)
+          .send(emailJsServiceId, emailJsTemplateId, formData)
           .then((response) => {
             console.log("SUCCESS!", response);
             showPopup("✅ Your message has been sent successfully!", true);
