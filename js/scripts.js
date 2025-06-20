@@ -1,5 +1,3 @@
-import CryptoJS from "crypto-js";
-
 (function () {
   // --- Google Analytics ---
   const gaScript = document.createElement("script");
@@ -96,46 +94,20 @@ import CryptoJS from "crypto-js";
       updateImageDisplay();
     });
     // 4) Contact form (EmailJS)
+    emailjs.init(window.EMAILJS_USER_ID);
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
       contactForm.addEventListener("submit", function (event) {
-        // Debugging logs to ensure proper execution
-        console.log("Form submission started");
-
-        // Prevent default behavior
         event.preventDefault();
 
         const submitButton = this.querySelector("button[type='submit']");
         submitButton.disabled = true;
         submitButton.textContent = "Sending...";
 
-        // Prepare form data with encryption
-        const secretKey = process.env.SECRET_KEY;
-        const formData = {
-          name: CryptoJS.AES.encrypt(this.querySelector("#name").value, secretKey).toString(),
-          surname: CryptoJS.AES.encrypt(this.querySelector("#surname").value, secretKey).toString(),
-          email: CryptoJS.AES.encrypt(this.querySelector("#email").value, secretKey).toString(),
-          number: CryptoJS.AES.encrypt(this.querySelector("#Number").value, secretKey).toString(),
-          message: this.querySelector("#message").value
-        };
-
-        console.log("Form data prepared:", formData);
-
-        fetch("/api/send-email", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
-        })
+        emailjs
+          .sendForm(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, this)
           .then((response) => {
-            if (!response.ok) {
-              return response.text().then((text) => {
-                throw new Error(text);
-              });
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log("SUCCESS!", data);
+            console.log("SUCCESS!", response);
             showPopup("✅ Your message has been sent successfully!", true);
           })
           .catch((error) => {
