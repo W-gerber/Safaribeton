@@ -1,3 +1,5 @@
+import CryptoJS from "crypto-js";
+
 export default async function handler(req, res) {
     if (req.method !== "POST") {
       res.setHeader("Allow", "POST");
@@ -12,15 +14,22 @@ export default async function handler(req, res) {
         return res.status(400).json({ message: "Missing required fields" });
       }
   
+      // Decrypt sensitive data
+      const secretKey = "your-secret-key"; // Replace with the same key used in the frontend
+      const decryptedName = CryptoJS.AES.decrypt(name, secretKey).toString(CryptoJS.enc.Utf8);
+      const decryptedSurname = CryptoJS.AES.decrypt(surname, secretKey).toString(CryptoJS.enc.Utf8);
+      const decryptedEmail = CryptoJS.AES.decrypt(email, secretKey).toString(CryptoJS.enc.Utf8);
+      const decryptedNumber = CryptoJS.AES.decrypt(number, secretKey).toString(CryptoJS.enc.Utf8);
+  
       const payload = {
         service_id: process.env.EMAILJS_SERVICE_ID,
         template_id: process.env.EMAILJS_TEMPLATE_ID,
         user_id: process.env.EMAILJS_USER_ID,
         template_params: {
-          user_name: name,
-          user_surname: surname,
-          user_email: email,
-          user_Number: number,
+          user_name: decryptedName,
+          user_surname: decryptedSurname,
+          user_email: decryptedEmail,
+          user_Number: decryptedNumber,
           message: message
         }
       };

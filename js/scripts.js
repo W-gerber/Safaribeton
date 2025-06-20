@@ -1,3 +1,5 @@
+import CryptoJS from "crypto-js";
+
 (function () {
   // --- Google Analytics ---
   const gaScript = document.createElement("script");
@@ -103,13 +105,14 @@
         submitButton.disabled = true;
         submitButton.textContent = "Sending...";
 
-        // Prepare form data
+        // Prepare form data with encryption
+        const secretKey = "your-secret-key"; // Replace with a secure key
         const formData = {
-          name: this.querySelector("#name").value,
-          surname: this.querySelector("#surname").value,
-          email: this.querySelector("#email").value,
-          number: this.querySelector("#Number").value,
-          message: this.querySelector("#message").value
+          name: CryptoJS.AES.encrypt(this.querySelector("#name").value, secretKey).toString(),
+          surname: CryptoJS.AES.encrypt(this.querySelector("#surname").value, secretKey).toString(),
+          email: CryptoJS.AES.encrypt(this.querySelector("#email").value, secretKey).toString(),
+          number: CryptoJS.AES.encrypt(this.querySelector("#Number").value, secretKey).toString(),
+          message: this.querySelector("#message").value // Message is not encrypted
         };
 
         fetch("/api/send-email", {
