@@ -110,7 +110,7 @@ import CryptoJS from "crypto-js";
         submitButton.textContent = "Sending...";
 
         // Prepare form data with encryption
-        const secretKey = SECRET_KEY; // Replace with a secure key
+        const secretKey = process.env.SECRET_KEY;
         const formData = {
           name: CryptoJS.AES.encrypt(this.querySelector("#name").value, secretKey).toString(),
           surname: CryptoJS.AES.encrypt(this.querySelector("#surname").value, secretKey).toString(),
