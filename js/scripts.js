@@ -93,8 +93,13 @@
 
       updateImageDisplay();
     });
+
     // 4) Contact form (EmailJS)
-    emailjs.init(window.EMAILJS_USER_ID);
+    const emailJsUserId = window.EMAILJS_USER_ID;
+    const emailJsTemplateId = window.EMAILJS_TEMPLATE_ID;
+    const emailJsServiceId = window.EMAILJS_SERVICE_ID;
+    emailjs.init(emailJsUserId);
+
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
       contactForm.addEventListener("submit", function (event) {
@@ -104,8 +109,16 @@
         submitButton.disabled = true;
         submitButton.textContent = "Sending...";
 
+        const formData = {
+          user_name: document.getElementById("name").value,
+          user_surname: document.getElementById("surname").value,
+          user_email: document.getElementById("email").value,
+          user_Number: document.getElementById("Number").value,
+          message: document.getElementById("message").value,
+        };
+
         emailjs
-          .sendForm(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, this)
+          .send(emailJsServiceId, emailJsTemplateId, formData)
           .then((response) => {
             console.log("SUCCESS!", response);
             showPopup("✅ Your message has been sent successfully!", true);
@@ -200,12 +213,11 @@
       let currentIndex = 0;
 
       const updateSlider = () => {
-        const cardWidth = cards[0].offsetWidth + 0; // Adjusted for margin
+        const cardWidth = cards[0].offsetWidth;
         const newTransform = -currentIndex * cardWidth;
         track.style.transform = `translateX(${newTransform}px)`;
       };
 
-      // Left arrow – scroll right (backwards)
       leftArrow.addEventListener("click", () => {
         if (currentIndex > 0) {
           currentIndex--;
@@ -213,7 +225,6 @@
         }
       });
 
-      // Right arrow – scroll left (forwards)
       rightArrow.addEventListener("click", () => {
         if (currentIndex < cards.length - 1) {
           currentIndex++;
