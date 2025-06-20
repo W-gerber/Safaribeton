@@ -99,6 +99,10 @@ import CryptoJS from "crypto-js";
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
       contactForm.addEventListener("submit", function (event) {
+        // Debugging logs to ensure proper execution
+        console.log("Form submission started");
+
+        // Prevent default behavior
         event.preventDefault();
 
         const submitButton = this.querySelector("button[type='submit']");
@@ -106,14 +110,16 @@ import CryptoJS from "crypto-js";
         submitButton.textContent = "Sending...";
 
         // Prepare form data with encryption
-        const secretKey = "your-secret-key"; // Replace with a secure key
+        const secretKey = SECRET_KEY; // Replace with a secure key
         const formData = {
           name: CryptoJS.AES.encrypt(this.querySelector("#name").value, secretKey).toString(),
           surname: CryptoJS.AES.encrypt(this.querySelector("#surname").value, secretKey).toString(),
           email: CryptoJS.AES.encrypt(this.querySelector("#email").value, secretKey).toString(),
           number: CryptoJS.AES.encrypt(this.querySelector("#Number").value, secretKey).toString(),
-          message: this.querySelector("#message").value // Message is not encrypted
+          message: this.querySelector("#message").value
         };
+
+        console.log("Form data prepared:", formData);
 
         fetch("/api/send-email", {
           method: "POST",
