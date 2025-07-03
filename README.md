@@ -38,17 +38,7 @@ npm start
 
 Then, open your browser and go to http://localhost:3000 to view the site.
 
-## 📂 Directory Structure
-
-Safaribeton/
-│── public/               # Static assets (images, favicon, etc.)
-│   └── Images/           # Product and site images
-│── css/                  # Stylesheets
-│── js/                   # JavaScript files
-│── api/                  # Serverless API endpoints
-│── index.html            # Main HTML file
-│── package.json          # Project dependencies
-│── README.md             # Documentation
+         # Documentation
 
 🎯 Future Enhancements
 - Add an e-commerce section for direct purchases
