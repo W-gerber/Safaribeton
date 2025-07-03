@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/sendMessage.js": {
-      "maxDuration": 30
-    }
-  },
   "builds": [
     {
       "src": "api/**/*.js",
