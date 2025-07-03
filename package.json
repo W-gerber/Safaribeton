@@ -4,7 +4,7 @@
   "description": "Safari Beton - Premium precast concrete elements website",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'Static site - no build required'",
+    "build": "echo 'Build complete'",
     "start": "vercel --prod",
     "deploy": "vercel --prod"
   },

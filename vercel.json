@@ -1,14 +1,10 @@
 {
-  "builds": [
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
+  "functions": {
+    "api/sendMessage.js": {
+      "maxDuration": 30
     }
-  ],
+  },
+  "public": true,
   "headers": [
     {
       "source": "/api/(.*)",
