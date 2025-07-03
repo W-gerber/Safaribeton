@@ -94,15 +94,10 @@
       updateImageDisplay();
     });
 
-    // 4) Contact form (EmailJS)
-    const emailJsUserId = window.EMAILJS_USER_ID;
-    const emailJsTemplateId = window.EMAILJS_TEMPLATE_ID;
-    const emailJsServiceId = window.EMAILJS_SERVICE_ID;
-    emailjs.init(emailJsUserId);
-
+    // 4) Contact form (Serverless API)
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
-      contactForm.addEventListener("submit", function (event) {
+      contactForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         const submitButton = this.querySelector("button[type='submit']");
@@ -110,27 +105,40 @@
         submitButton.textContent = "Sending...";
 
         const formData = {
-          user_name: document.getElementById("name").value,
-          user_surname: document.getElementById("surname").value,
-          user_email: document.getElementById("email").value,
-          user_Number: document.getElementById("Number").value,
+          name: document.getElementById("name").value,
+          surname: document.getElementById("surname").value,
+          email: document.getElementById("email").value,
+          phone: document.getElementById("Number").value,
           message: document.getElementById("message").value,
         };
 
-        emailjs
-          .send(emailJsServiceId, emailJsTemplateId, formData)
-          .then((response) => {
-            console.log("SUCCESS!", response);
-            showPopup("✅ Your message has been sent successfully!", true);
-          })
-          .catch((error) => {
-            console.error("FAILED...", error);
-            showPopup("❌ Oops! Something went wrong.", false);
-          })
-          .finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = "Send Message";
+        try {
+          const response = await fetch('/api/sendMessage', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
           });
+
+          const result = await response.json();
+
+          if (result.success) {
+            console.log("SUCCESS!", result);
+            showPopup("✅ Your message has been sent successfully!", true);
+            // Reset form on success
+            contactForm.reset();
+          } else {
+            console.error("API Error:", result.error);
+            showPopup(`❌ ${result.error || 'Something went wrong. Please try again.'}`, false);
+          }
+        } catch (error) {
+          console.error("Network Error:", error);
+          showPopup("❌ Network error. Please check your connection and try again.", false);
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Message";
+        }
       });
     }
 

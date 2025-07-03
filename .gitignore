@@ -1,2 +1,84 @@
-node_modules
+# Environment variables (NEVER commit these!)
 .env
+.env.local
+.env.production
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Vercel deployment
+.vercel
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Config files with sensitive data
+js/config.js
+
+# Test files (don't push to production)
+test-contact.html
+
+# Documentation and setup files (keep local only)
+CONTACT_FORM_README.md
+DEPLOYMENT_CHECKLIST.md
+EMAILJS_SETUP.md
+VERCEL_POSTGRES_SETUP.md
+
+# VS Code settings (optional - some prefer to keep these)
+.vscode/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini

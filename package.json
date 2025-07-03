@@ -1,0 +1,31 @@
+{
+  "name": "safari-beton-website",
+  "version": "1.0.0",
+  "description": "Safari Beton - Premium precast concrete elements website",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build complete'",
+    "start": "vercel --prod"
+  },
+  "dependencies": {
+    "@vercel/postgres": "^0.5.1"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/W-gerber/Safaribeton.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/W-gerber/Safaribeton/issues"
+  },
+  "homepage": "https://github.com/W-gerber/Safaribeton#readme"
+}
