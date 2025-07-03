@@ -11,7 +11,8 @@
     },
     {
       "src": "**",
-      "use": "@vercel/static"
+      "use": "@vercel/static",
+      "config": { "outputDirectory": "public" }
     }
   ],
   "routes": [
