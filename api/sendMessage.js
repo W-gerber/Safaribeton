@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import { sql } from '@vercel/postgres';
 
 export default async function handler(req, res) {
