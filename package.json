@@ -9,7 +9,9 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
-    "@vercel/postgres": "^0.5.1"
+    "@vercel/postgres": "^0.5.1",
+    "@vercel/analytics": "^0.1.11",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "vercel": "^32.0.0"
