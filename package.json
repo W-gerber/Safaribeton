@@ -6,14 +6,17 @@
     "dev": "vercel dev",
     "build": "echo 'Build complete'",
     "start": "vercel --prod",
-    "deploy": "vercel --prod"
+    "deploy": "vercel --prod",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy"
   },
   "dependencies": {
-    "@vercel/postgres": "^0.5.1",
+    "@prisma/client": "^4.15.0",
     "@vercel/analytics": "^0.1.11",
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
+    "prisma": "^4.15.0",
     "vercel": "^32.0.0"
   },
   "engines": {

@@ -1,5 +1,7 @@
 import fetch from 'node-fetch';
-import { sql } from '@vercel/postgres';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   // Set CORS headers
@@ -43,33 +45,21 @@ export default async function handler(req, res) {
       });
     }
 
-    // Create messages table if it doesn't exist
-    console.log('Creating/checking messages table...');
-    await sql`
-      CREATE TABLE IF NOT EXISTS messages (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        surname VARCHAR(255),
-        email VARCHAR(255) NOT NULL,
-        phone VARCHAR(50),
-        message TEXT NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        email_sent BOOLEAN DEFAULT FALSE
-      )
-    `;
-    console.log('Messages table ready');
-
-    // Insert message into database
+    // Insert message into database using Prisma
     console.log('Inserting message into database...');
-    const result = await sql`
-      INSERT INTO messages (name, surname, email, phone, message)
-      VALUES (${name}, ${surname || ''}, ${email}, ${phone || ''}, ${message})
-      RETURNING id, created_at
-    `;
+    const newMessage = await prisma.message.create({
+      data: {
+        name,
+        surname: surname || null,
+        email,
+        phone: phone || null,
+        message
+      }
+    });
     console.log('Message inserted successfully');
 
-    const messageId = result.rows[0].id;
-    const createdAt = result.rows[0].created_at;
+    const messageId = newMessage.id;
+    const createdAt = newMessage.createdAt;
 
     // Send email via EmailJS API
     console.log('Sending email via EmailJS...');
@@ -78,37 +68,29 @@ export default async function handler(req, res) {
       user_surname: surname || '',
       user_email: email,
       user_Number: phone || '',
-      message: message
+      message
     });
     console.log('Email send result:', emailSent);
 
-    // Update database with email status
     if (emailSent) {
-      await sql`
-        UPDATE messages 
-        SET email_sent = true 
-        WHERE id = ${messageId}
-      `;
+      await prisma.message.update({
+        where: { id: messageId },
+        data: { emailSent: true }
+      });
       console.log('Database updated with email status');
     }
 
     return res.status(200).json({
       success: true,
       message: 'Message received and processed successfully.',
-      data: {
-        id: messageId,
-        emailSent: emailSent,
-        createdAt: createdAt
-      }
+      data: { id: messageId, emailSent, createdAt }
     });
 
   } catch (error) {
     console.error('Error processing message:', error);
-    
     return res.status(500).json({
       success: false,
-      error: 'Internal server error. Please try again later.',
-      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: error.message || 'Internal server error. Please try again later.'
     });
   }
 }
