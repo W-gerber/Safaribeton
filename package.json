@@ -4,7 +4,8 @@
   "description": "Safari Beton - Premium precast concrete elements website",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'Build complete'",
+    "build": "prisma generate",
+    "vercel-build": "prisma generate",
     "start": "vercel --prod",
     "deploy": "vercel --prod",
     "prisma:generate": "prisma generate",
