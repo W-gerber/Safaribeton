@@ -1,13 +1,21 @@
-import fetch from 'node-fetch';
 import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Verify EmailJS environment variables
+  const requiredEnv = ['EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID', 'EMAILJS_PUBLIC_KEY', 'EMAILJS_PRIVATE_KEY'];
+  const missingEnv = requiredEnv.filter(key => !process.env[key]);
+  if (missingEnv.length) {
+    console.error('Missing EmailJS environment variables:', missingEnv);
+    return res.status(500).json({
+      success: false,
+      error: `Server misconfiguration: missing ${missingEnv.join(', ')}`
+    });
+  }
 
   // Handle OPTIONS request for CORS
   if (req.method === 'OPTIONS') {
@@ -24,9 +32,6 @@ export default async function handler(req, res) {
 
   try {
     const { name, surname, email, phone, message } = req.body;
-
-    // Log incoming request (for debugging)
-    console.log('Received contact form submission:', { name, email, hasMessage: !!message });
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -45,21 +50,31 @@ export default async function handler(req, res) {
       });
     }
 
-    // Insert message into database using Prisma
-    console.log('Inserting message into database...');
-    const newMessage = await prisma.message.create({
-      data: {
-        name,
-        surname: surname || null,
-        email,
-        phone: phone || null,
-        message
+    // Attempt DB operations only if DATABASE_URL is set
+    let messageId = null;
+    let createdAt = null;
+    if (process.env.DATABASE_URL) {
+      const prisma = new PrismaClient();
+      try {
+        const newMessage = await prisma.message.create({
+          data: {
+            name,
+            surname: surname || null,
+            email,
+            phone: phone || null,
+            message
+          }
+        });
+        messageId = newMessage.id;
+        createdAt = newMessage.createdAt;
+      } catch (dbError) {
+        console.error('Database error (continuing):', dbError);
+      } finally {
+        await prisma.$disconnect();
       }
-    });
-    console.log('Message inserted successfully');
-
-    const messageId = newMessage.id;
-    const createdAt = newMessage.createdAt;
+    } else {
+      console.warn('No DATABASE_URL; skipping DB operations.');
+    }
 
     // Send email via EmailJS API
     console.log('Sending email via EmailJS...');
@@ -70,16 +85,24 @@ export default async function handler(req, res) {
       user_Number: phone || '',
       message
     });
-    console.log('Email send result:', emailSent);
+    console.log('EmailJS send result:', emailSent);
 
-    if (emailSent) {
-      await prisma.message.update({
-        where: { id: messageId },
-        data: { emailSent: true }
-      });
-      console.log('Database updated with email status');
+    // Update DB status if applicable
+    if (messageId && emailSent && process.env.DATABASE_URL) {
+      const prisma = new PrismaClient();
+      try {
+        await prisma.message.update({
+          where: { id: messageId },
+          data: { emailSent: true }
+        });
+      } catch (dbError) {
+        console.error('Database update error:', dbError);
+      } finally {
+        await prisma.$disconnect();
+      }
     }
 
+    // Return JSON response
     return res.status(200).json({
       success: true,
       message: 'Message received and processed successfully.',
@@ -88,6 +111,7 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Error processing message:', error);
+    // Always return JSON
     return res.status(500).json({
       success: false,
       error: error.message || 'Internal server error. Please try again later.'
