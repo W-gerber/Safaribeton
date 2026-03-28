@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Safari Beton</title>
- <link rel="stylesheet" href="css/styles.css" />
-  <script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Safari Beton supplies premium precast concrete products for residential, commercial, and infrastructure projects across South Africa." />
+  <link rel="stylesheet" href="css/styles.css?v=20260327b" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="/Images/logo.png" />
+  <link rel="preload" as="image" href="Images/Home.jpg?v=20260327b" />
 
   <meta property="og:title" content="Safari Beton" />
   <meta property="og:description" content="Safari Beton is a leading supplier of premium precast concrete elements, dedicated to providing innovative solutions for construction projects. Our commitment..." />
@@ -19,17 +21,71 @@
   <meta name="twitter:title" content="Safari Beton" />
   <meta name="twitter:description" content="Safari Beton is a leading supplier of premium precast concrete elements, dedicated to providing innovative solutions for construction projects. Our commitment..." />
   <meta name="twitter:image" content="https://www.safaribeton.co.za/Images/logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#003c27">
+  <meta name="theme-color" content="#032317">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
-<body>
+<body class="is-loading">
+  <div class="page-skeleton" aria-hidden="true">
+    <div class="page-skeleton__header">
+      <span class="page-skeleton__brand shimmer-block"></span>
+      <div class="page-skeleton__nav">
+        <span class="shimmer-block"></span>
+        <span class="shimmer-block"></span>
+        <span class="shimmer-block"></span>
+        <span class="shimmer-block"></span>
+      </div>
+    </div>
+    <div class="page-skeleton__body">
+      <div class="page-skeleton__hero shimmer-block"></div>
+      <div class="page-skeleton__section">
+        <span class="page-skeleton__pill shimmer-block"></span>
+        <div class="page-skeleton__grid page-skeleton__grid--products">
+          <span class="shimmer-block"></span>
+          <span class="shimmer-block"></span>
+          <span class="shimmer-block"></span>
+          <span class="shimmer-block"></span>
+        </div>
+      </div>
+      <div class="page-skeleton__section">
+        <span class="page-skeleton__pill shimmer-block"></span>
+        <div class="page-skeleton__grid page-skeleton__grid--services">
+          <span class="shimmer-block"></span>
+          <span class="shimmer-block"></span>
+          <span class="shimmer-block"></span>
+        </div>
+      </div>
+      <div class="page-skeleton__section">
+        <span class="page-skeleton__pill shimmer-block"></span>
+        <div class="page-skeleton__projects">
+          <span class="page-skeleton__projects-side shimmer-block"></span>
+          <div class="page-skeleton__projects-main">
+            <span class="page-skeleton__projects-hero shimmer-block"></span>
+            <span class="page-skeleton__projects-info shimmer-block"></span>
+          </div>
+        </div>
+      </div>
+      <div class="page-skeleton__section">
+        <span class="page-skeleton__pill shimmer-block"></span>
+        <div class="page-skeleton__contact">
+          <span class="page-skeleton__map shimmer-block"></span>
+          <span class="page-skeleton__form shimmer-block"></span>
+        </div>
+      </div>
+    </div>
+  </div>
   <header>
     <div class="logo">
-      <img src="Images/logo.png" alt="Safari Beton Logo" />
+      <img src="Images/logo.png" alt="Safari Beton Logo" decoding="async" />
+      <span class="logo-divider"></span>
       <h1>SAFARI BETON</h1>
     </div>
-    <nav>
+    <button class="hamburger" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="primary-navigation">
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#shop">Shop</a></li>
@@ -51,9 +107,13 @@
         <div class="text-bottom">
           <div>Precast Concrete Supplier</div>
         </div>
+        <div class="hero-actions">
+          <a class="hero-action" href="#shop">View Products</a>
+          <a class="hero-action hero-action--secondary" href="#contact">Request a Quote</a>
+        </div>
       </div>
     </div>
-    <img src="Images/Home.jpg" alt="Precast Concrete" class="main-image" />
+    <img src="Images/Home.jpg?v=20260327b" alt="Precast Concrete" class="main-image" decoding="async" />
   </section>
   <section id="shop">
     <h2 class="section-header">Our Products</h2>
@@ -61,14 +121,14 @@
     <div class="shop-container">
       <div class="shop-item">
         <div class="carousel">
-          <img src="Images/Precast-fence-1.jpg" alt="Precast Fence Image 1" />
-          <img src="Images/Precast-fence-2.jpg" alt="Precast Fence Image 2" class="hidden" />
-          <img src="Images/Precast-fence-3.jpg" alt="Precast Fence Image 3" class="hidden" />
-          <img src="Images/Precast-fence-4.jpg" alt="Precast Fence Image 4" class="hidden" />
-          <img src="Images/Precast-fence-5.jpg" alt="Precast Fence Image 5" class="hidden" />
-          <img src="Images/Precast-fence-6.jpg" alt="Precast Fence Image 6" class="hidden" />
-          <img src="Images/Precast-fence-7.jpg" alt="Precast Fence Image 7" class="hidden" />
-          <img src="Images/Precast-fence-8.jpg" alt="Precast Fence Image 8" class="hidden" />
+          <img src="Images/Precast-fence-1.jpg" alt="Precast Fence Image 1" loading="lazy" decoding="async" />
+          <img src="Images/Precast-fence-2.jpg" alt="Precast Fence Image 2" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-fence-3.jpg" alt="Precast Fence Image 3" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-fence-4.jpg" alt="Precast Fence Image 4" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-fence-5.jpg" alt="Precast Fence Image 5" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-fence-6.jpg" alt="Precast Fence Image 6" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-fence-7.jpg" alt="Precast Fence Image 7" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-fence-8.jpg" alt="Precast Fence Image 8" class="hidden" loading="lazy" decoding="async" />
         </div>
         <h3>Precast Fence</h3>
         <p>Palisade Dimensions: 2.4 meters in Height</p>
@@ -76,23 +136,23 @@
       </div>
       <div class="shop-item">
         <div class="carousel">
-          <img src="Images/Precast-bricks-1.jpg" alt="Precast Bricks Image 1" />
-          <img src="Images/Precast-bricks-2.jpg" alt="Precast Bricks Image 2" class="hidden" />
-          <img src="Images/Precast-bricks-3.jpg" alt="Precast Bricks Image 3" class="hidden" />
-          <img src="Images/Precast-bricks-4.jpg" alt="Precast Bricks Image 4" class="hidden" />
-          <img src="Images/Precast-bricks-5.jpg" alt="Precast Bricks Image 5" class="hidden" />
-          <img src="Images/Precast-bricks-6.jpg" alt="Precast Bricks Image 6" class="hidden" />
+          <img src="Images/Precast-bricks-1.jpg" alt="Precast Bricks Image 1" loading="lazy" decoding="async" />
+          <img src="Images/Precast-bricks-2.jpg" alt="Precast Bricks Image 2" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-bricks-3.jpg" alt="Precast Bricks Image 3" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-bricks-4.jpg" alt="Precast Bricks Image 4" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-bricks-5.jpg" alt="Precast Bricks Image 5" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-bricks-6.jpg" alt="Precast Bricks Image 6" class="hidden" loading="lazy" decoding="async" />
         </div>
         <h3>Precast Slabs</h3>
         <p>Dimensions: 1.5 meters x 300 millimeters</p>
       </div>
       <div class="shop-item">
         <div class="carousel">
-          <img src="Images/Precast-lintels-1.jpg" alt="Precast Lintels Image 1" />
-          <img src="Images/Precast-lintels-2.jpg" alt="Precast Lintels Image 2" class="hidden" />
-          <img src="Images/Precast-lintels-3.jpg" alt="Precast Lintels Image 3" class="hidden" />
-          <img src="Images/Precast-lintels-4.jpg" alt="Precast Lintels Image 4" class="hidden" />
-           <img src="Images/Precast-lintels-5.jpg" alt="Precast Lintels Image 5" class="hidden" />
+          <img src="Images/Precast-lintels-1.jpg" alt="Precast Lintels Image 1" loading="lazy" decoding="async" />
+          <img src="Images/Precast-lintels-2.jpg" alt="Precast Lintels Image 2" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-lintels-3.jpg" alt="Precast Lintels Image 3" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-lintels-4.jpg" alt="Precast Lintels Image 4" class="hidden" loading="lazy" decoding="async" />
+           <img src="Images/Precast-lintels-5.jpg" alt="Precast Lintels Image 5" class="hidden" loading="lazy" decoding="async" />
         </div>
         <h3>Precast Lintels</h3>
         <p>Dimensions: 900 millimeters - 6 meters</p>
@@ -100,11 +160,11 @@
       </div>
       <div class="shop-item">
         <div class="carousel">
-          <img src="Images/Precast-retaining-walls-1.jpg" alt="Precast Retaining Walls Image 1" />
-          <img src="Images/Precast-retaining-walls-2.jpg" alt="Precast Retaining Walls Image 2" class="hidden" />
-          <img src="Images/Precast-retaining-walls-3.jpg" alt="Precast Retaining Walls Image 3" class="hidden" />
-          <img src="Images/Precast-retaining-walls-4.jpg" alt="Precast Retaining Walls Image 4" class="hidden" />
-           <img src="Images/Precast-retaining-walls-5.jpg" alt="Precast Retaining Walls Image 5" class="hidden" />
+          <img src="Images/Precast-retaining-walls-1.jpg" alt="Precast Retaining Walls Image 1" loading="lazy" decoding="async" />
+          <img src="Images/Precast-retaining-walls-2.jpg" alt="Precast Retaining Walls Image 2" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-retaining-walls-3.jpg" alt="Precast Retaining Walls Image 3" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-retaining-walls-4.jpg" alt="Precast Retaining Walls Image 4" class="hidden" loading="lazy" decoding="async" />
+           <img src="Images/Precast-retaining-walls-5.jpg" alt="Precast Retaining Walls Image 5" class="hidden" loading="lazy" decoding="async" />
         </div>
         <h3>Retaining Walls and Road Crubs</h3>
         <p>Road Crub Dimensions: 1 meters x 100 millimeters</p>
@@ -112,12 +172,12 @@
 
       <div class="shop-item">
         <div class="carousel">
-          <img src="Images/Precast-table-1.jpg" alt="Precast Table Image 1" />
-          <img src="Images/Precast-table-2.jpg" alt="Precast Table Image 2" class="hidden" />
-          <img src="Images/Precast-table-3.jpg" alt="Precast Table Image 3" class="hidden" />
-          <img src="Images/Precast-table-4.jpg" alt="Precast Table Image 4" class="hidden" />
-          <img src="Images/Precast-table-5.jpg" alt="Precast Table Image 5" class="hidden" />
-          <img src="Images/Precast-table-6.jpg" alt="Precast Table Image 6" class="hidden" />
+          <img src="Images/Precast-table-1.jpg" alt="Precast Table Image 1" loading="lazy" decoding="async" />
+          <img src="Images/Precast-table-2.jpg" alt="Precast Table Image 2" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-table-3.jpg" alt="Precast Table Image 3" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-table-4.jpg" alt="Precast Table Image 4" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-table-5.jpg" alt="Precast Table Image 5" class="hidden" loading="lazy" decoding="async" />
+          <img src="Images/Precast-table-6.jpg" alt="Precast Table Image 6" class="hidden" loading="lazy" decoding="async" />
         </div>
         <h3>Precast Tables</h3>
         <p>Round Tables Dimensions: 1 meter</p>
@@ -135,7 +195,7 @@
       <div class="a-box">
         <div class="img-container">
           <div class="inner-skew">
-            <img src="Images/Services-1.jpg" alt="High-Quality Precast Products">
+            <img src="Images/Services-1.jpg" alt="High-Quality Precast Products" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="text-container">
@@ -149,7 +209,7 @@
       <div class="a-box">
         <div class="img-container">
           <div class="inner-skew">
-            <img src="Images/Services-2.jpg" alt="Custom Design Solutions">
+            <img src="Images/Services-2.jpg" alt="Custom Design Solutions" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="text-container">
@@ -163,7 +223,7 @@
       <div class="a-box">
         <div class="img-container">
           <div class="inner-skew">
-            <img src="Images/Services-3.jpg" alt="Timely Delivery & Installation">
+            <img src="Images/Services-3.jpg" alt="Timely Delivery & Installation" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="text-container">
@@ -178,80 +238,246 @@
   </section>
   
 
-  <section id="about">
-    <h2 class="section-header">About Safari</h2>
-    <div class="underline"></div>
-    <div class="about-section">
-      <div class="about-content">
-        <h2>About Safari Beton</h2>
-      <p>
-        Safari Beton stands as a prominent supplier of high-quality precast concrete components, committed to the development of innovative solutions for construction endeavors. Our unwavering dedication to excellence, meticulous attention to detail, and unwavering focus on customer satisfaction distinguish us in the industry.
-      </p>
-    </div>
-  </section>
-  
  <section id="projects" class="projects-section">
     <h2 class="section-header">Featured Projects</h2>
-    <div class="projects-slider">
-      <!-- Horizontal Track -->
-      <div class="projects-track">
-        <!-- Panel 1 -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="Images/Project-1.jpg" alt="Residential Development" />
+    <div class="projects-showcase" aria-live="polite">
+      <div class="projects-stage">
+        <aside class="projects-sidebar">
+          <div class="project-plan is-large is-active">
+            <span class="project-plan-media">
+              <img src="Images/Floor-Plan-1.jpg" alt="Floor Plan 1 preview" loading="lazy" decoding="async" />
+              <span class="project-plan-label"><em>01</em> Floor Plan</span>
+            </span>
           </div>
-          <h3 class="project-title">Residential Development</h3>
-          <p class="project-description">
-            Transforming modern living with premium precast solutions. Our engineered walls and systems deliver lasting durability, energy efficiency, and a flawless finish.
-          </p>
+
+          <div class="projects-sidebar-row">
+            <div class="project-plan">
+              <span class="project-plan-media">
+                <img src="Images/Floor-Plan-2.jpg" alt="Floor Plan 2 preview" loading="lazy" decoding="async" />
+                <span class="project-plan-label"><em>02</em> Floor Plan</span>
+              </span>
+            </div>
+
+            <div class="project-plan">
+              <span class="project-plan-media">
+                <img src="Images/Floor-Plan-3.jpg" alt="Floor Plan 3 preview" loading="lazy" decoding="async" />
+                <span class="project-plan-label"><em>03</em> Floor Plan</span>
+              </span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="projects-main">
+          <div class="projects-hero-card">
+            <div class="projects-hero-media">
+              <img
+                id="projects-featured-image"
+                src="Images/Project-1.jpg"
+                alt="Residential Development"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <div class="projects-info-bar">
+            <div class="projects-info-copy">
+              <span class="projects-eyebrow">Featured Work</span>
+              <h3 class="project-title" id="projects-featured-title">Safari Beton Projects</h3>
+              <p class="project-description" id="projects-featured-description">
+                Crafted precast systems for homes and developments that demand strength, speed, and a polished finish.
+              </p>
+            </div>
+            <div class="projects-info-arrows">
+              <button class="slider-arrow left" aria-label="Show previous featured project">&#10094;</button>
+              <button class="slider-arrow right" aria-label="Show next featured project">&#10095;</button>
+            </div>
+          </div>
         </div>
-  
-        <!-- Panel 2 -->
-        <div class="project-card">
+      </div>
+
+      <div class="projects-data" hidden>
+        <article class="project-card is-active" data-project-index="0">
           <div class="project-image">
-            <img src="Images/Project-2.jpg" alt="Commercial Projects" />
+            <img src="Images/Project-1.jpg" alt="Residential Development" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="project-title">Featured Projects</h3>
+          <p class="project-description">
+            Crafted precast systems for homes and developments that demand strength, speed, and a polished finish.
+          </p>
+        </article>
+
+        <article class="project-card" data-project-index="1">
+          <div class="project-image">
+            <img src="Images/Project-2.jpg" alt="Commercial Projects" loading="lazy" decoding="async" />
           </div>
           <h3 class="project-title">Commercial Projects</h3>
           <p class="project-description">
-            Innovative precast solutions for commercial spaces. Enjoy rapid construction, enduring performance, and impeccable aesthetics for every project.
+            Innovative precast systems for business spaces with rapid installation, clean detailing and reliable long-term performance.
           </p>
-        </div>
-  
-        <!-- Panel 3 -->
-        <div class="project-card">
+        </article>
+
+        <article class="project-card" data-project-index="2">
           <div class="project-image">
-            <img src="Images/Project-3.jpg" alt="Infrastructure Projects" />
+            <img src="Images/Project-3.jpg" alt="Infrastructure Projects" loading="lazy" decoding="async" />
           </div>
           <h3 class="project-title">Infrastructure Projects</h3>
           <p class="project-description">
-            Engineered for strength and reliability, our infrastructure solutions are built to last. Our precast elements ensure unmatched durability and efficiency.
+            Structural precast elements engineered for strength, repeatability and dependable delivery across larger civil projects.
           </p>
-        </div>
-        
-        <!-- Panel 4 -->
-        <div class="project-card">
+        </article>
+
+        <article class="project-card" data-project-index="3">
           <div class="project-image">
-            <img src="Images/Project-4.jpg" alt="Infrastructure Projects" />
+            <img src="Images/Project-4.jpg" alt="Modern Home" loading="lazy" decoding="async" />
           </div>
           <h3 class="project-title">Modern Home</h3>
           <p class="project-description">
-            A modern three-bedroom home designed for style and comfort. Featuring spacious interiors and energy-efficient construction, this precast solution promises lasting quality.
+            A contemporary home system designed for comfort, fast build times and durable finishes that stay sharp for years.
           </p>
-        </div>
-  
-        <!-- Panel 5 -->
-        <div class="project-card">
+        </article>
+
+        <article class="project-card" data-project-index="4">
           <div class="project-image">
-            <img src="Images/Project-5.jpg" alt="Modern Home" />
+            <img src="Images/Project-5.jpg" alt="Contemporary Living Space" loading="lazy" decoding="async" />
           </div>
           <h3 class="project-title">Contemporary Living Space</h3>
           <p class="project-description">
-            This elegantly designed three-bedroom home blends style with comfort, offering generous interiors and sustainable, energy-efficient construction. Crafted with durable precast materials, it guarantees longevity and modern appeal.
+            Spacious residential construction combining efficient planning, precast consistency and a clean modern exterior.
           </p>
+        </article>
+
+        <article class="project-card" data-project-index="5">
+          <div class="project-image">
+            <img src="Images/Project-6.jpg" alt="Precast Estate" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="project-title">Precast Estate</h3>
+          <p class="project-description">
+            A full-scale residential estate built with precision precast elements, combining bold design with structural confidence.
+          </p>
+        </article>
+
+        <article class="project-card" data-project-index="6">
+          <div class="project-image">
+            <img src="Images/Project-7.jpg" alt="Compact Starter Home" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="project-title">Compact Starter Home</h3>
+          <p class="project-description">
+            A practical precast starter home built for efficient living, clean detailing and dependable day-to-day durability.
+          </p>
+        </article>
+
+        <article class="project-card" data-project-index="7">
+          <div class="project-image">
+            <img src="Images/Project-8.jpg" alt="Twin-Roof Residential Home" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="project-title">Twin-Roof Residential Home</h3>
+          <p class="project-description">
+            A spacious precast home with a balanced roofline, bright openings and a layout designed for comfortable family living.
+          </p>
+        </article>
+
+        <article class="project-card" data-project-index="8">
+          <div class="project-image">
+            <img src="Images/Project-9.jpg" alt="Contemporary Family Home" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="project-title">Contemporary Family Home</h3>
+          <p class="project-description">
+            A modern precast residence combining strong structural lines, sheltered access and a refined finish for everyday living.
+          </p>
+        </article>
+
+        <article class="project-card" data-project-index="9">
+          <div class="project-image">
+            <img src="Images/Project-10.jpg" alt="Finished Patio Home" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="project-title">Finished Patio Home</h3>
+          <p class="project-description">
+            A completed residential home featuring textured precast walls, a covered patio area and a warm, lived-in outdoor setting.
+          </p>
+        </article>
+
+        <article class="project-card" data-project-index="10">
+          <div class="project-image">
+            <img src="Images/Project-11.jpg" alt="Show Unit or Office Build" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="project-title">Show Unit or Office Build</h3>
+          <p class="project-description">
+            A neat precast structure suited to office use, display purposes or compact accommodation, finished with a clean front approach.
+          </p>
+        </article>
+
+        <article class="project-card" data-project-index="11">
+          <div class="project-image">
+            <img src="Images/Project-12.jpg" alt="Compact Garden Home" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="project-title">Compact Garden Home</h3>
+          <p class="project-description">
+            A simple and efficient precast home set within a wide garden space, offering practical shelter with a tidy finished look.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-header">About Safari</h2>
+    <div class="underline"></div>
+    <div class="about-revamp">
+      <div class="about-story">
+        <div class="about-story-bubbles" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="about-kicker">Concrete solutions with a sharper standard</span>
+        <h3 class="about-title">Safari Beton delivers precast systems designed for speed on site, strength in service, and confidence at handover.</h3>
+        <p class="about-lead">
+          We supply high-quality precast concrete products for residential, commercial, and infrastructure work, pairing reliable manufacturing with practical support from first enquiry to final delivery.
+        </p>
+        <div class="about-highlights">
+          <article class="about-highlight">
+            <span class="about-highlight__label">Product Range</span>
+            <p>Fencing, slabs, lintels, retaining elements, and precast tables built for everyday durability.</p>
+          </article>
+          <article class="about-highlight">
+            <span class="about-highlight__label">Project Support</span>
+            <p>Clear guidance on product selection, quantities, and fit for your specific construction requirement.</p>
+          </article>
+          <article class="about-highlight">
+            <span class="about-highlight__label">Delivery Focus</span>
+            <p>Consistent turnaround and dependable supply that help projects keep moving without unnecessary delays.</p>
+          </article>
         </div>
       </div>
-      <button class="slider-arrow left">&lt;</button>
-      <button class="slider-arrow right">&gt;</button>
+      <aside class="about-panel" aria-label="Safari Beton company strengths">
+        <div class="about-panel__media">
+          <figure class="about-photo about-photo--feature">
+            <img
+              id="about-rotating-photo"
+              src="Images/aboutPhoto-1.jpg"
+              alt="Safari Beton precast concrete products on display"
+              data-about-images="Images/aboutPhoto-1.jpg|Images/aboutPhoto-2.jpg|Images/aboutPhoto-3.jpg"
+              data-about-alts="Safari Beton precast concrete products on display|Safari Beton project detail|Safari Beton precast installation detail"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+        <div class="about-panel__card">
+          <span class="about-panel__eyebrow">Why clients come back</span>
+          <h4>Built around practical construction demands.</h4>
+          <ul class="about-points">
+            <li>Quality-focused precast manufacturing with consistent finishes.</li>
+            <li>Solutions suited to both standard supply and custom project needs.</li>
+            <li>A service approach centered on reliability, detail, and customer satisfaction.</li>
+          </ul>
+        </div>
+      </aside>
     </div>
   </section>
   <section id="contact">
@@ -260,13 +486,13 @@
     <div class="contact-container">
       <div class="map-container">
         <iframe
+          title="Safari Beton location map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1270.8925525562547!2d27.30076108104786!3d-25.71677212117636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebe0f11878214f1%3A0x2eed6e1d6fd6606a!2sSafari%20Concrete%20%2FPre-%20Cast!5e0!3m2!1sen!2sza!4v1738915913538!5m2!1sen!2sza"
           width="600"
           height="450"
-          style="border:0;"
           allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          loading="eager"
+          referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
       </div>
       <div class="contact-form">
@@ -287,12 +513,12 @@
           <div class="form-group">
             <textarea id="message" name="message" rows="4" placeholder="Your message here..." required></textarea>
           </div>
-          <button type="submit" class="pulse-button">Send Message</button>
-          <div class="contact-details">
-            <p class="office-hours">Office Hours: Monday to Friday 7:00 AM to 5:00 PM,</p>
-            <p class="office-hours">Weekend Hours: Saturday 7:00 AM to 12:00 PM </p>
-            <p class="office-number">Office Number: You can reach us at 083 583 8388 </p>
-          </div>
+          <button type="submit" class="pulse-button">
+            <span>Send Message</span>
+            <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M21.8 2.2a1 1 0 0 0-1.04-.16L2.76 9.76a1 1 0 0 0 .08 1.87l7.12 2.53 2.53 7.12a1 1 0 0 0 .9.66h.06a1 1 0 0 0 .91-.55l7.6-18A1 1 0 0 0 21.8 2.2Zm-8.06 15.83-1.78-5a1 1 0 0 0-.6-.6l-5-1.78 11.16-4.7Z" fill="currentColor" />
+            </svg>
+          </button>
         </form>
       </div>
     </div>
@@ -302,11 +528,17 @@
     <div class="footer-top">
       <div class="footer-container">
         <div class="footer-logo">
-          <img src="Images/logo.png" alt="Company Logo" />
+          <img src="Images/logo.png" alt="Company Logo" loading="lazy" decoding="async" />
         </div>
         <div class="footer-title">SAFARI BETON</div>
       </div>
-      <div class="footer-country">South Africa</div>
+      <div class="footer-meta">
+        <div class="footer-country">South Africa</div>
+      </div>
+    </div>
+    <div class="footer-contact-details">
+      <p><span>Weekdays</span>Mon to Fri, 7:00 AM - 5:00 PM</p>
+        <p><span>Office Number</span>083 583 8388</p>
     </div>
     <div class="footer-bottom-container">
       <span class="footer-text">© 2025 Safari Beton. All Rights Reserved.</span>
@@ -317,7 +549,6 @@
       </div>
     </div>
   </footer>
-  <script src="js/config.js" defer></script>
   <script src="js/scripts.js" defer></script>
 </body>
 </html>
